@@ -2,6 +2,7 @@
   color-scheme: dark;
   --bg0: #030b1f;
   --bg1: #07163a;
+  --bg2: #0c2350;
   --txt: #e8edf7;
   --muted: #b9c4da;
   --card: rgba(17, 35, 78, 0.62);
@@ -24,13 +25,59 @@ html, body {
 }
 
 .wrap {
-  width: min(1000px, 92vw);
+  width: min(1100px, 92vw);
   margin: 56px auto;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 8;
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(8px);
+  background: rgba(3, 11, 31, 0.66);
+}
+
+.topbar-inner {
+  margin: 0 auto;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #d7e4ff;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.nav {
+  display: flex;
+  gap: 16px;
+}
+
+.nav a {
+  color: #c7d7ff;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 .hero {
   text-align: center;
-  margin-bottom: 36px;
+  margin: 8px 0 22px;
+  padding: 38px 24px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background:
+    radial-gradient(650px 320px at 50% -10%, rgba(99, 140, 226, 0.20), transparent 70%),
+    linear-gradient(180deg, rgba(20, 44, 90, 0.45), rgba(10, 26, 58, 0.35));
+}
+
+.hero.compact {
+  padding: 26px 20px;
 }
 
 .eyebrow {
@@ -48,7 +95,7 @@ h1 {
 
 .sub {
   margin: 14px auto 0;
-  max-width: 700px;
+  max-width: 760px;
   color: var(--muted);
   line-height: 1.55;
 }
@@ -76,10 +123,57 @@ h1 {
   border-color: #3a5f9f;
 }
 
+.stats {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.stat {
+  border: 1px solid var(--line);
+  background: rgba(8, 20, 47, 0.6);
+  border-radius: 12px;
+  padding: 12px;
+  text-align: left;
+}
+
+.stat strong {
+  display: block;
+  font-size: 18px;
+}
+
+.stat span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.section {
+  margin: 42px 0;
+}
+
+.section h2 {
+  margin: 0 0 8px;
+  font-size: clamp(24px, 4vw, 34px);
+}
+
+.section-sub {
+  margin: 0 0 16px;
+  color: var(--muted);
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
+}
+
+.grid.two {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid.three {
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
 .card {
@@ -94,13 +188,140 @@ h1 {
   font-size: 20px;
 }
 
+.card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
 .card p {
   margin: 0 0 12px;
   color: var(--muted);
+}
+
+.card ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.card li {
+  margin-bottom: 8px;
 }
 
 .card a {
   color: #c7d7ff;
   text-decoration: none;
   font-weight: 600;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 10px;
+}
+
+.step {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(12, 30, 67, 0.55);
+  padding: 14px;
+}
+
+.step span {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #3d67b3, #2a4e8f);
+  border: 1px solid #466cb4;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.step p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.faq details {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  background: rgba(12, 30, 67, 0.45);
+  overflow: hidden;
+}
+
+.faq summary {
+  cursor: pointer;
+  padding: 13px 14px;
+  font-weight: 600;
+}
+
+.faq p {
+  margin: 0;
+  padding: 0 14px 14px;
+  color: var(--muted);
+}
+
+.cta {
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px 18px;
+  background:
+    radial-gradient(700px 240px at 50% -40%, rgba(104, 149, 238, 0.22), transparent 60%),
+    linear-gradient(180deg, rgba(20, 44, 90, 0.35), rgba(9, 21, 47, 0.35));
+}
+
+.cta p {
+  color: var(--muted);
+}
+
+.footer {
+  border-top: 1px solid var(--line);
+  margin-top: 42px;
+}
+
+.footer-inner {
+  margin: 0 auto;
+  padding: 22px 0 36px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+.footer span {
+  font-weight: 700;
+  margin-right: auto;
+}
+
+.footer a {
+  color: #c7d7ff;
+  text-decoration: none;
+}
+
+code {
+  font-family: Consolas, Monaco, monospace;
+  font-size: 0.92em;
+  color: #d9e7ff;
+}
+
+@media (max-width: 760px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+
+  .hero {
+    padding: 30px 16px;
+  }
 }

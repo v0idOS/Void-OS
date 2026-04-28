@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Void OS Installation Guide</title>
+  <meta name="description" content="Void OS setup guide, installation flow, troubleshooting, and file verification steps.">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="./index.html">VOID OS</a>
+      <nav class="nav">
+        <a href="./index.html">Home</a>
+        <a href="./downloads.html">Downloads</a>
+        <a href="https://github.com/v0idOS/Void-OS">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="section hero compact">
+      <p class="eyebrow">DOCUMENTATION</p>
+      <h1>Install and setup guide</h1>
+      <p class="sub">End-to-end setup flow for Void OS playbook deployments.</p>
+    </section>
+
+    <section class="section">
+      <h2>Requirements</h2>
+      <div class="grid two">
+        <article class="card">
+          <h3>System</h3>
+          <ul>
+            <li>Supported Windows build</li>
+            <li>Administrator access</li>
+            <li>Reliable internet connection</li>
+            <li>Sufficient free disk space</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Recommended prep</h3>
+          <ul>
+            <li>Create a restore image / backup</li>
+            <li>Test first in a virtual machine</li>
+            <li>Disconnect non-essential devices during install</li>
+            <li>Keep a fallback installer/recovery media ready</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Installation steps</h2>
+      <div class="steps">
+        <article class="step"><span>1</span><p>Download latest <code>.apbx</code> from the releases page.</p></article>
+        <article class="step"><span>2</span><p>Launch AME Wizard and load the playbook file.</p></article>
+        <article class="step"><span>3</span><p>Select install options (Defender, mitigations, browser).</p></article>
+        <article class="step"><span>4</span><p>Start deployment and wait for completion/reboot prompts.</p></article>
+      </div>
+    </section>
+
+    <section id="verification" class="section">
+      <h2>Verification checklist</h2>
+      <div class="grid two">
+        <article class="card">
+          <h3>Release file verification</h3>
+          <ul>
+            <li>Compare SHA/hash from release notes</li>
+            <li>Confirm file size matches published asset</li>
+            <li>Download only from official repository links</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Post-install checks</h3>
+          <ul>
+            <li>Open key desktop shortcuts and settings pages</li>
+            <li>Confirm selected browser installation (if chosen)</li>
+            <li>Run basic network/audio/GPU sanity checks</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Troubleshooting</h2>
+      <div class="faq">
+        <details>
+          <summary>Wizard fails before deployment starts</summary>
+          <p>Re-download the artifact, verify checksum, and test with antivirus exclusions or in a VM.</p>
+        </details>
+        <details>
+          <summary>A selected option did not apply</summary>
+          <p>Re-run the relevant script/toggle from desktop utilities, then reboot and retest.</p>
+        </details>
+        <details>
+          <summary>Need help with a specific machine</summary>
+          <p>Open an issue with hardware specs, Windows build, and install logs for faster triage.</p>
+        </details>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/v0idOS/Void-OS/issues">Open an Issue</a>
+        <a class="btn" href="https://github.com/v0idOS/Void-OS/discussions">Ask in Discussions</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>Void OS</span>
+      <a href="./index.html">Home</a>
+      <a href="./downloads.html">Downloads</a>
+      <a href="https://github.com/v0idOS/Void-OS/releases">Releases</a>
+    </div>
+  </footer>
+</body>
+</html>

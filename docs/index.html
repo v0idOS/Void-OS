@@ -3,46 +3,157 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Void OS</title>
-  <meta name="description" content="Void OS project home, downloads, docs, and community links.">
+  <title>Void OS | Performance + Privacy Windows Playbook</title>
+  <meta name="description" content="Void OS is a lightweight Windows playbook focused on speed, privacy, and control. Download builds, read docs, and join the community.">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <main class="wrap">
-    <header class="hero">
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <a class="brand" href="#top">VOID OS</a>
+      <nav class="nav">
+        <a href="./downloads.html">Downloads</a>
+        <a href="./guide.html">Docs</a>
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a href="#community">Community</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero">
       <p class="eyebrow">VOID OS</p>
-      <h1>Fast. Clean. Yours.</h1>
+      <h1>Windows, stripped to what matters.</h1>
       <p class="sub">
-        Void OS is a lightweight Windows playbook focused on performance, privacy, and control.
+        Void OS is a tuned Windows playbook built for lower latency, fewer background annoyances,
+        and cleaner defaults without sacrificing control.
       </p>
       <div class="actions">
-        <a class="btn primary" href="https://github.com/v0idOS/Void-OS/releases">Download Builds</a>
-        <a class="btn" href="https://github.com/v0idOS/Void-OS">Source Code</a>
+        <a class="btn primary" href="./downloads.html">Download Latest Build</a>
+        <a class="btn" href="./guide.html">Read Install Guide</a>
+        <a class="btn" href="https://github.com/v0idOS/Void-OS">View Source</a>
       </div>
-    </header>
+      <div class="stats">
+        <div class="stat"><strong>Open</strong><span>GitHub-first workflow</span></div>
+        <div class="stat"><strong>Minimal</strong><span>Cleaner defaults, less noise</span></div>
+        <div class="stat"><strong>Configurable</strong><span>Keep control over features</span></div>
+      </div>
+    </section>
 
-    <section class="grid">
-      <article class="card">
-        <h2>Get Started</h2>
-        <p>Install guide, requirements, and first boot setup.</p>
-        <a href="https://github.com/v0idOS/Void-OS#readme">Open Guide</a>
-      </article>
-      <article class="card">
-        <h2>Releases</h2>
-        <p>Latest playbook artifacts and changelogs.</p>
-        <a href="https://github.com/v0idOS/Void-OS/releases">View Releases</a>
-      </article>
-      <article class="card">
-        <h2>Report Issues</h2>
-        <p>Found a bug or regression? Open an issue.</p>
-        <a href="https://github.com/v0idOS/Void-OS/issues">Open Issues</a>
-      </article>
-      <article class="card">
-        <h2>Discussions</h2>
-        <p>Ideas, support, and roadmap conversation.</p>
-        <a href="https://github.com/v0idOS/Void-OS/discussions">Join Discussion</a>
-      </article>
+    <section id="features" class="section">
+      <h2>Why Void OS</h2>
+      <p class="section-sub">Built for users who want responsiveness and clarity, not bloat.</p>
+      <div class="grid three">
+        <article class="card">
+          <h3>Performance-first defaults</h3>
+          <p>Reduced startup drag, tuned services, and practical QoL tweaks aimed at day-to-day responsiveness.</p>
+        </article>
+        <article class="card">
+          <h3>Privacy-focused configuration</h3>
+          <p>Telemetry and tracking reductions where possible, plus transparent tweak definitions you can inspect.</p>
+        </article>
+        <article class="card">
+          <h3>No black box behavior</h3>
+          <p>Playbook + scripts are plain text and versioned. You can audit, modify, and build your own releases.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>What you get</h2>
+      <div class="grid two">
+        <article class="card">
+          <h3>Core profile</h3>
+          <ul>
+            <li>Lean system behavior and cleaner shell defaults</li>
+            <li>Reduced background noise and unnecessary prompts</li>
+            <li>Optional browser install step during setup</li>
+            <li>Consistent branding and curated desktop utilities</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Advanced controls</h3>
+          <ul>
+            <li>Defender and mitigation options at install time</li>
+            <li>Service toggles and troubleshooting scripts included</li>
+            <li>Network and privacy tweak categories by task</li>
+            <li>Modular YAML structure for custom variants</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="install" class="section">
+      <h2>Install flow</h2>
+      <p class="section-sub">Fast path from download to first boot.</p>
+      <div class="steps">
+        <article class="step"><span>1</span><p>Download the latest <code>.apbx</code> from Releases.</p></article>
+        <article class="step"><span>2</span><p>Open it in AME Wizard on a supported Windows build.</p></article>
+        <article class="step"><span>3</span><p>Choose your options (Defender, mitigations, browser, etc.).</p></article>
+        <article class="step"><span>4</span><p>Finish deployment and verify post-install checks.</p></article>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="./downloads.html">Get Build</a>
+        <a class="btn" href="./guide.html">Setup Documentation</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Roadmap</h2>
+      <div class="grid three">
+        <article class="card">
+          <h3>Near term</h3>
+          <p>Polish branding pass, docs expansion, and tighter release automation.</p>
+        </article>
+        <article class="card">
+          <h3>Mid term</h3>
+          <p>Preset profiles for different use-cases: gaming, creator, balanced daily driver.</p>
+        </article>
+        <article class="card">
+          <h3>Long term</h3>
+          <p>More modular packaging, better validation, and broader hardware testing coverage.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details>
+          <summary>Is Void OS a separate operating system?</summary>
+          <p>No. It is a Windows playbook/configuration project that applies a curated set of tweaks and scripts.</p>
+        </details>
+        <details>
+          <summary>Can I audit what gets changed?</summary>
+          <p>Yes. The project is source-available in GitHub and tweak logic is defined in YAML/PowerShell/cmd files.</p>
+        </details>
+        <details>
+          <summary>Can I fork and customize it?</summary>
+          <p>Yes. Fork the repository, change modules or tweaks, then build your own playbook artifact.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="community" class="section cta">
+      <h2>Build it with us</h2>
+      <p>Contribute fixes, propose features, or share benchmarks and compatibility reports.</p>
+      <div class="actions">
+        <a class="btn primary" href="https://github.com/v0idOS/Void-OS">GitHub Repository</a>
+        <a class="btn" href="https://github.com/v0idOS/Void-OS/issues">Report a Bug</a>
+        <a class="btn" href="https://github.com/v0idOS/Void-OS/discussions">Join Discussions</a>
+      </div>
     </section>
   </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>Void OS</span>
+      <a href="./downloads.html">Downloads</a>
+      <a href="./guide.html">Docs</a>
+      <a href="https://github.com/v0idOS/Void-OS/issues">Issues</a>
+      <a href="https://github.com/v0idOS/Void-OS/discussions">Discussions</a>
+    </div>
+  </footer>
 </body>
 </html>
