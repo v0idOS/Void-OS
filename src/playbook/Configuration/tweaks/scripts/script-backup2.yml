@@ -1,0 +1,9 @@
+---
+title: Backup Void Services and Drivers
+description: Backs up default Void services and drivers, after all the tweaks are finished
+actions:
+  - !powerShell:
+    command: >-
+      .\BACKUP.ps1 -FilePath """$([Environment]::GetFolderPath('Windows'))\VoidModules\Other\voidServices.reg"""
+    wait: true
+    exeDir: true

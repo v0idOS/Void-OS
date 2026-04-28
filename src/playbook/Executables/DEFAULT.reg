@@ -1,0 +1,216 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS]
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Animation]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Visual Effects (Animations)\\Void Visual Effects (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\AppIconThumbnail]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\File Explorer Customization\\App Icons on Thumbnails\\Enable App Icons on Thumbnails (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\AppStoreArchiving]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Store App Archiving\\Disable Store App Archiving (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\AutomaticFolderDiscovery]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\File Explorer Customization\\Automatic Folder Discovery\\Disable Automatic Folder Discovery (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\AutomaticUpdates]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\CPU Idle\\Desktop Context Menu\\Remove Idle Toggle in Desktop Context Menu (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\BackgroundApps]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Background Apps\\Disable Background Apps (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Bluetooth]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\6. Advanced Configuration\\Services\\Bluetooth\\Enable Bluetooth (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\CompactView]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\File Explorer Customization\\Compact View\\Enable Compact View (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\ContextMenuTerminals]
+"state"=dword:00000003
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Context Menus\\Terminals\\Remove Terminals Context Menu (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Copilot]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\AI Features\\Microsoft Copilot\\Disable Microsoft Copilot (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\CpuIdle]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\CPU Idle\\Enable Idle (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\DefaultVoidNetwork]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\9. Troubleshooting\\Network\\Reset Network to Void Default.cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\DeliveryOptimisation]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Delivery Optimization\\Disable Delivery Optimization (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\EdgeSwipe]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Edge Swipe\\Allow Edge Swipe (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\ExtractContextMenu]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Context Menus\\Extract\\Remove Extract (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\FaultTolerantHeap]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\7. Security\\Mitigations\\Fault Tolerant Heap\\Disable FTH (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\FileSharing]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\File Sharing\\Disable File Sharing (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\FSOGameBar]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\FSO and Game Bar\\Enable FSO and Game Bar Support (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Gallery]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\File Explorer Customization\\Gallery\\Disable Gallery (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\GiveAccessToMenu]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\File Sharing\\Give Access To Menu\\Disable Give Access To Menu (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Hibernation]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Hibernation\\Disable Hibernation (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\HideAppBrowserControl]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\7. Security\\Defender\\Hide App and Browser Control\\Hide App and Browser Control (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Indexing]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Search Indexing\\Minimal Search Indexing (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\LanmanWorkstation]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\6. Advanced Configuration\\Services\\Lanman Workstation (SMB)\\Enable Lanman Workstation (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Location]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Location\\Disable Location (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\LockScreen]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Lock Screen\\Show Lock Screen (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Mitigations]
+"state"=dword:00000002
+"path"="C:\\Windows\\VoidDesktop\\7. Security\\Mitigations\\Set Windows Default Mitigations.cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\NetworkDiscovery]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\6. Advanced Configuration\\Services\\Network Discovery\\Enable Network Discovery Services (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\NetworkNavigationPane]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\File Sharing\\Network Navigation Pane\\Disable Network Navigation Pane (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\NVidiaDisplayContainer]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\6. Advanced Configuration\\Services\\NVIDIA Display Container\\Enable NVIDIA Display Container LS (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\NVidiaDisplayContainerContextMenu]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\6. Advanced Configuration\\Services\\NVIDIA Display Container\\Context Menu\\Remove Container Context Menu (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\OldContextMenu]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Context Menus\\Windows 11\\Old Context Menu (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\PhoneLink]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Mobile Devices (Phone Link)\\Disable Mobile Device Settings (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\PowerSaving]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Power-saving\\Default Power-saving (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Printing]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\6. Advanced Configuration\\Services\\Printing\\Enable Printing (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\QuickAccess]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\File Explorer Customization\\Quick Access\\Show Quick Access (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Recall]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\AI Features\\Recall\\Disable Recall Support (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\RecentItems]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Unlock Recent Items\\Disable Recent Items (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\RemovableDrivesInSidebar]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\File Explorer Customization\\Removable Drives in Sidebar\\Disable Removable Drives in Sidebar (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\SecurityHealthTray]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\7. Security\\Defender\\Security Health Tray\\Remove Security Tray from Startup (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\ShortcutIcon]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Shortcut Icon\\Default Windows (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\ShortcutText]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Shortcut Text\\Disable Shortcut Text (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Sleep]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Sleep\\Enable Sleep (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\SleepStudy]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Sleep Study\\Disable Sleep Study (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\SnapLayouts]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Snap Layouts\\Enable Snap Layouts (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\SuperFetch]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\6. Advanced Configuration\\Services\\Superfetch\\Enable SuperFetch (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\SystemRestore]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\System Restore\\Enable System Restore (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\TakeOwnership]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Context Menus\\Take Ownership\\Remove Take Ownership to Context Menu (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\UpdateNotifications]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Update Notifications\\Enable Update Notifications (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\VerboseMessages]
+"state"=dword:00000001
+"path"="C:\\Windows\\VoidDesktop\\4. Interface Tweaks\\Verbose Status Messages\\Disable Verbose Messages (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\WebSearch]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Web Search (includes Search Highlights)\\Disable Web Search (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\Widgets]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Widgets (News and Interests)\\Disable Widgets (default).cmd"
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\VoidOS\Services\WindowsSpotlight]
+"state"=dword:00000000
+"path"="C:\\Windows\\VoidDesktop\\3. General Configuration\\Windows Spotlight\\Disable Windows Spotlight (default).cmd"
+
