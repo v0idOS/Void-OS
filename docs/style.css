@@ -1,0 +1,106 @@
+:root {
+  color-scheme: dark;
+  --bg0: #030b1f;
+  --bg1: #07163a;
+  --txt: #e8edf7;
+  --muted: #b9c4da;
+  --card: rgba(17, 35, 78, 0.62);
+  --line: rgba(129, 159, 224, 0.24);
+  --accent: #9cb8ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Segoe UI", Inter, Arial, sans-serif;
+  color: var(--txt);
+  background:
+    radial-gradient(900px 500px at 50% -10%, #203d75 0%, transparent 65%),
+    linear-gradient(180deg, var(--bg1), var(--bg0));
+}
+
+.wrap {
+  width: min(1000px, 92vw);
+  margin: 56px auto;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+  letter-spacing: 0.24em;
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(34px, 6vw, 56px);
+}
+
+.sub {
+  margin: 14px auto 0;
+  max-width: 700px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.actions {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  border: 1px solid var(--line);
+  color: var(--txt);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.btn.primary {
+  background: linear-gradient(180deg, #355ea9, #2b4b86);
+  border-color: #3a5f9f;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  background: var(--card);
+}
+
+.card h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.card p {
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.card a {
+  color: #c7d7ff;
+  text-decoration: none;
+  font-weight: 600;
+}
