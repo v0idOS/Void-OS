@@ -1,0 +1,10 @@
+title: Native Standby Memory Cleaner
+description: Installs a background scheduled task that flushes standby memory every 10 minutes, eliminating RAM hoarding and stutters.
+
+actions:
+  - !run:
+      exe: 'powershell'
+      args: '-NoProfile -Command "Copy-Item -Path ''%CURRENTDIR%\..\..\..\Executables\StandbyCleaner.ps1'' -Destination ''$env:SystemRoot\VoidModules\Scripts\StandbyCleaner.ps1'' -Force"'
+  - !run:
+      exe: 'powershell'
+      args: '-NoProfile -Command "$action = New-ScheduledTaskAction -Execute ''powershell.exe'' -Argument ''-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File \"$env:SystemRoot\VoidModules\Scripts\StandbyCleaner.ps1\"''; $trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Minutes 10); Register-ScheduledTask -TaskName ''VoidStandbyCleaner'' -Action $action -Trigger $trigger -User ''SYSTEM'' -Force"'

@@ -64,7 +64,10 @@ actions:
   - !task: {path: 'tweaks\performance\system\optimize-ntfs.yml'}
   - !task: {path: 'tweaks\performance\system\disable-service-host-split.yml'}
   - !task: {path: 'tweaks\performance\system\win32-priority-separation.yml'}
-
+  - !task: {path: 'tweaks\performance\extreme-latency.yml'}
+  - !task: {path: 'tweaks\performance\disable-mpo.yml'}
+  - !task: {path: 'tweaks\performance\game-priority.yml'}
+  - !task: {path: 'tweaks\performance\standby-cleaner.yml'}
 
 
   # -----------------------------------------------------
@@ -168,6 +171,7 @@ actions:
   - !task: {path: 'tweaks\qol\disable-dynamic-lighting.yml'}
   - !task: {path: 'tweaks\qol\disable-auto-app-archival.yml'}
   - !task: {path: 'tweaks\qol\add-sharing-settings-shortcut.yml'}
+  - !task: {path: 'tweaks\qol\laptop-battery.yml'}
 
   # -------------------------------------------------------------------------- #
   #  qol\appearance                                                            #

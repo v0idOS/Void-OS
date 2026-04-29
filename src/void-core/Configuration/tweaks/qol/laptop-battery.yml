@@ -1,0 +1,7 @@
+title: Laptop Battery God Mode
+description: Natively forces the active power plan to disable CPU Turbo Boost when unplugged (DC), massively extending battery life while maintaining 100% performance on AC power.
+
+actions:
+  - !run:
+      exe: 'powershell'
+      args: '-NoProfile -Command "$plan = (powercfg -getactivescheme).Split('' '')[3]; powercfg -setdcvalueindex $plan SUB_PROCESSOR PROCTHROTTLEMAX 99; powercfg -setacvalueindex $plan SUB_PROCESSOR PROCTHROTTLEMAX 100; powercfg -setactive $plan"'

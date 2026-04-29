@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Void OS Installation Guide</title>
-  <meta name="description" content="Void OS setup guide, installation flow, troubleshooting, and file verification steps.">
+  <title>Void OS | Installation Guide</title>
+  <meta name="description" content="The official deployment protocol for Void OS.">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -13,104 +13,125 @@
       <a class="brand" href="./index.html">VOID OS</a>
       <nav class="nav">
         <a href="./index.html">Home</a>
+        <a href="./features.html">Features</a>
         <a href="./downloads.html">Downloads</a>
-        <a href="https://github.com/v0idOS/Void-OS">GitHub</a>
+        <a href="./guide.html" class="active">Docs</a>
+        <a href="https://github.com/v0idOS/Void-OS">Source</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <section class="section hero compact">
+    <section class="hero compact">
       <p class="eyebrow">DOCUMENTATION</p>
-      <h1>Install and setup guide</h1>
-      <p class="sub">End-to-end setup flow for Void OS playbook deployments.</p>
+      <h1>Deployment Protocol</h1>
+      <p class="sub">The official end-to-end setup guide to transforming your system into an uncompromising powerhouse.</p>
     </section>
 
     <section class="section">
-      <h2>Requirements</h2>
-      <div class="grid two">
+      <div class="section-header">
+        <h2>System Requirements</h2>
+        <p class="sub">Verify your hardware and software capabilities before deployment.</p>
+      </div>
+      <div class="grid">
         <article class="card">
-          <h3>System</h3>
+          <h3>Prerequisites</h3>
           <ul>
-            <li>Supported Windows build</li>
-            <li>Administrator access</li>
-            <li>Reliable internet connection</li>
-            <li>Sufficient free disk space</li>
+            <li>Supported Windows Build (check release notes)</li>
+            <li>Administrator execution privileges</li>
+            <li>Stable internet connection</li>
+            <li>At least 15GB of free SSD storage</li>
           </ul>
         </article>
         <article class="card">
-          <h3>Recommended prep</h3>
+          <h3>Best Practices</h3>
           <ul>
-            <li>Create a restore image / backup</li>
-            <li>Test first in a virtual machine</li>
-            <li>Disconnect non-essential devices during install</li>
-            <li>Keep a fallback installer/recovery media ready</li>
+            <li>Create a complete system restore image</li>
+            <li>Test the flow in a Virtual Machine first</li>
+            <li>Disconnect all non-essential peripherals</li>
+            <li>Have recovery media on standby</li>
           </ul>
         </article>
       </div>
     </section>
 
     <section class="section">
-      <h2>Installation steps</h2>
+      <div class="section-header">
+        <h2>Deployment Sequence</h2>
+        <p class="sub">Four steps to absolute performance.</p>
+      </div>
       <div class="steps">
-        <article class="step"><span>1</span><p>Download latest <code>.apbx</code> from the releases page.</p></article>
-        <article class="step"><span>2</span><p>Launch AME Wizard and load the playbook file.</p></article>
-        <article class="step"><span>3</span><p>Select install options (Defender, mitigations, browser).</p></article>
-        <article class="step"><span>4</span><p>Start deployment and wait for completion/reboot prompts.</p></article>
+        <article class="step"><span>1</span><p>Download the exclusive <code>.apbx</code> artifact from the official Releases page.</p></article>
+        <article class="step"><span>2</span><p>Launch AME Wizard with administrative rights and load the playbook.</p></article>
+        <article class="step"><span>3</span><p>Select your elite configuration modules (Defender, Mitigations, Privacy tweaks).</p></article>
+        <article class="step"><span>4</span><p>Execute deployment. Wait for the sequence to complete and prompt a reboot.</p></article>
       </div>
     </section>
 
     <section id="verification" class="section">
-      <h2>Verification checklist</h2>
-      <div class="grid two">
+      <div class="section-header">
+        <h2>Integrity Verification</h2>
+        <p class="sub">Trust, but cryptographically verify.</p>
+      </div>
+      <div class="grid">
         <article class="card">
-          <h3>Release file verification</h3>
+          <h3>Pre-Install Validation</h3>
           <ul>
-            <li>Compare SHA/hash from release notes</li>
-            <li>Confirm file size matches published asset</li>
-            <li>Download only from official repository links</li>
+            <li>Cross-reference the SHA256 hash with our official release logs</li>
+            <li>Verify file byte size matches the published asset</li>
+            <li>Only download from <code>github.com/v0idOS/Void-OS</code></li>
           </ul>
         </article>
         <article class="card">
-          <h3>Post-install checks</h3>
+          <h3>Post-Install Sanity Checks</h3>
           <ul>
-            <li>Open key desktop shortcuts and settings pages</li>
-            <li>Confirm selected browser installation (if chosen)</li>
-            <li>Run basic network/audio/GPU sanity checks</li>
+            <li>Open the newly configured Settings application</li>
+            <li>Verify custom browser deployment (if selected)</li>
+            <li>Run a latency/DPC test to confirm performance gains</li>
           </ul>
         </article>
       </div>
     </section>
 
     <section class="section">
-      <h2>Troubleshooting</h2>
+      <div class="section-header">
+        <h2>Troubleshooting Matrix</h2>
+        <p class="sub">Solutions to common deployment hurdles.</p>
+      </div>
       <div class="faq">
         <details>
-          <summary>Wizard fails before deployment starts</summary>
-          <p>Re-download the artifact, verify checksum, and test with antivirus exclusions or in a VM.</p>
+          <summary>AME Wizard halts before execution begins</summary>
+          <p>This usually indicates a corrupt download or interference from third-party Antivirus. Re-download the artifact, verify the checksum, and temporarily suspend AV software.</p>
         </details>
         <details>
-          <summary>A selected option did not apply</summary>
-          <p>Re-run the relevant script/toggle from desktop utilities, then reboot and retest.</p>
+          <summary>A selected module did not apply correctly</summary>
+          <p>Execute the corresponding standalone script from the Void OS desktop utility folder. Reboot the system and re-verify the state.</p>
         </details>
         <details>
-          <summary>Need help with a specific machine</summary>
-          <p>Open an issue with hardware specs, Windows build, and install logs for faster triage.</p>
+          <summary>Need advanced technical support</summary>
+          <p>Open a detailed issue on GitHub including your hardware specifications, base Windows build, and complete AME installation logs.</p>
         </details>
       </div>
-      <div class="actions">
-        <a class="btn primary" href="https://github.com/v0idOS/Void-OS/issues">Open an Issue</a>
-        <a class="btn" href="https://github.com/v0idOS/Void-OS/discussions">Ask in Discussions</a>
+      <div class="actions" style="margin-top: 3rem;">
+        <a class="btn primary" href="https://github.com/v0idOS/Void-OS/issues">File an Issue</a>
+        <a class="btn" href="https://github.com/v0idOS/Void-OS/discussions">Consult the Community</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap footer-inner">
-      <span>Void OS</span>
-      <a href="./index.html">Home</a>
-      <a href="./downloads.html">Downloads</a>
-      <a href="https://github.com/v0idOS/Void-OS/releases">Releases</a>
+  <footer class="footer wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span>VOID OS</span>
+        <p>Engineered by Remo / Batify Lab.</p>
+      </div>
+      <div class="footer-links">
+        <a href="./index.html">Home</a>
+        <a href="./features.html">Features</a>
+        <a href="./downloads.html">Downloads</a>
+        <a href="./guide.html">Docs</a>
+        <a href="https://github.com/v0idOS/Void-OS">GitHub</a>
+      </div>
     </div>
   </footer>
 </body>

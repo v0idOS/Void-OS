@@ -1,0 +1,19 @@
+title: Extreme Latency Annihilation
+description: Disables High Precision Event Timer (HPET), dynamic tick, and forces uniform system timing.
+
+actions:
+  # HPET and Dynamic Tick Disable
+  - !run: {exe: 'bcdedit', args: '/set useplatformclock No'}
+  - !run: {exe: 'bcdedit', args: '/set disabledynamictick Yes'}
+  - !run: {exe: 'bcdedit', args: '/set useplatformtick Yes'}
+  - !run: {exe: 'bcdedit', args: '/set tscsyncpolicy Enhanced'}
+  
+  # Disable Synthetic Timers
+  - !registryValue:
+      path: 'HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\kernel'
+      value: 'GlobalTimerResolutionRequests'
+      type: REG_DWORD
+      data: 1
+
+  # Execute Ultimate Power Plan
+  - !run: {exe: 'powershell', args: '-NoProfile -ExecutionPolicy Bypass -File "%CURRENTDIR%\..\..\..\Executables\ULTIMATE_POWER.ps1"'}

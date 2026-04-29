@@ -1,0 +1,9 @@
+title: Disable Multi-Plane Overlay (MPO)
+description: Destroys MPO to permanently eliminate GPU micro-stutters and fix visual artifacts.
+
+actions:
+  - !registryValue:
+      path: 'HKLM\SOFTWARE\Microsoft\Windows\Dwm'
+      value: 'OverlayTestMode'
+      type: REG_DWORD
+      data: 5
