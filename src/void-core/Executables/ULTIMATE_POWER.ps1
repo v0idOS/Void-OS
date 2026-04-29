@@ -20,7 +20,7 @@ $highPerf = "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c"
 $guid = [guid]::NewGuid().ToString()
 
 powercfg -duplicatescheme $highPerf $guid
-powercfg -changename $guid "Void OS Ultimate Performance" "Engineered by Batify Lab for zero latency and absolute maximum FPS."
+powercfg -changename $guid "Void OS Ultimate Performance" "Engineered by Remo for zero latency and absolute maximum FPS."
 
 # Set Parking to 0%
 powercfg -setacvalueindex $guid SUB_PROCESSOR 0cc5b647-c1df-4637-891a-dec35c318583 100
