@@ -10,6 +10,9 @@ public class MemoryCache
     [DllImport("ntdll.dll")]
     public static extern int NtSetSystemInformation(int SystemInformationClass, IntPtr SystemInformation, int SystemInformationLength);
 
+    [DllImport("ntdll.dll")]
+    public static extern int RtlAdjustPrivilege(int Privilege, bool bEnablePrivilege, bool IsThreadPrivilege, out bool PreviousValue);
+
     public static void FlushStandby()
     {
         // Require Privilege elevation (assuming SYSTEM or Admin)
@@ -17,6 +20,9 @@ public class MemoryCache
         int COMMAND_FLUSH_STANDBY = 4;
         
         try {
+            bool prev;
+            RtlAdjustPrivilege(13, true, false, out prev); // 13 is SeProfileSingleProcessPrivilege
+
             IntPtr pCommand = Marshal.AllocHGlobal(Marshal.SizeOf(COMMAND_FLUSH_STANDBY));
             Marshal.WriteInt32(pCommand, COMMAND_FLUSH_STANDBY);
             NtSetSystemInformation(SYSTEM_MEMORY_LIST_INFORMATION, pCommand, Marshal.SizeOf(COMMAND_FLUSH_STANDBY));

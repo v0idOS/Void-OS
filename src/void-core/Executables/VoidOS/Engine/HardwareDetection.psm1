@@ -30,4 +30,12 @@ function Test-ServiceExists {
     return ($null -ne $svc)
 }
 
-Export-ModuleMember -Function Get-SystemRAMGB, Test-IsLaptop, Test-HasDedicatedGPU, Test-ServiceExists
+function Test-IsIntelHybridCPU {
+    $cpu = Get-CimInstance Win32_Processor
+    if ($cpu.Name -match "Intel" -and ($cpu.Name -match "i[3579]-1[2-9]\d{3}" -or $cpu.Name -match "Core Ultra")) {
+        return $true
+    }
+    return $false
+}
+
+Export-ModuleMember -Function Get-SystemRAMGB, Test-IsLaptop, Test-HasDedicatedGPU, Test-ServiceExists, Test-IsIntelHybridCPU

@@ -136,12 +136,16 @@ while ($true) { Get-Content -Wait -LiteralPath $a -EA 0 | Write-Output; Start-Sl
 }
 			[string]$liveLogText = ($liveLogScript -replace '"','"""' -replace "'","''").Trim() -replace "`r?`n", " "
 			
-			$actionsIndex = $customYml.IndexOf('actions:')
-			$newCustomYml = $customYml[0..$actionsIndex] + `
-				"  - !cmd: {command: 'start `"AME Wizard Live Log`" PowerShell -NoP -C `"$liveLogText`"'}" + `
-				$customYml[($actionsIndex + 1)..($customYml.Count)]
+			$actionsIndex = [array]::FindIndex($customYml, [System.Predicate[string]]{ $args[0] -match '^\s*actions:\s*$' })
+			if ($actionsIndex -ge 0) {
+				$newCustomYml = $customYml[0..$actionsIndex] + `
+					"  - !cmd: {command: 'start `"AME Wizard Live Log`" PowerShell -NoP -C `"$liveLogText`"'}" + `
+					$customYml[($actionsIndex + 1)..($customYml.Count)]
 
-			Set-Content -Path $tempCustomYmlPath -Value $newCustomYml
+				Set-Content -Path $tempCustomYmlPath -Value $newCustomYml
+			} else {
+				Write-Warning "Could not find 'actions:' root key in custom.yml. Skipping live log injection."
+			}
 		} else {
 			Write-Error "Can't find '$customYmlPath', not adding live log."
 		}

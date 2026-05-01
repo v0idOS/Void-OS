@@ -1,11 +1,22 @@
-## Security Policy
+# Security Policy
 
-### Vulnerability Reporting
+## Supported Versions
 
-At Void, our primary objective is to provide an optimal equilibrium between security, performance, and usability.
+Currently, Void OS operates on a rolling release cycle targeting the latest Windows 11 builds (24H2+). We only support security patches for our latest released `.apbx` playbook.
 
-As Void is built on Windows, a proprietary operating system developed by Microsoft, we may not have solutions for security issues associated with Windows. Nonetheless, we are committed to addressing any security concerns caused by Void and welcome any enhancements made to the base Windows. We encourage the submission of GitHub issues and pull requests that relate to security vulnerabilities, as long as the solutions match our objective of having an equilibrium.
+| Version | Supported          |
+| ------- | ------------------ |
+| Latest  | :white_check_mark: |
+| Older   | :x:                |
 
-Should you discover any security flaws linked to the Void-specific software/tools or [AME Wizard](https://ameliorated.io) (i.e., anything not related to Microsoft), kindly notify us immediately through the appropriate channels. For AME Wizard, please visit the [website](https://ameliorated.io) to identify suitable contacts. For all other issues, report them to the corresponding Void repository as an issue.
+## Reporting a Vulnerability
 
-Please note that some issues may not be rectifiable by us. If you come across a vulnerability in Void that is also present in the latest version of stock/vanilla Windows, please report it to Microsoft. For more information on reporting security vulnerabilities and pentesting, please visit the [Microsoft](https://www.microsoft.com/en-us/msrc/faqs-report-an-issue) website. We wish you the best of luck in your reporting endeavor.
+Because Void OS heavily modifies Windows default security settings (e.g., Defender, UAC, VSS), users inherently accept a modified security posture in exchange for maximum performance.
+
+However, if you discover a vulnerability in *our codebase* (e.g., privilege escalation via our custom PowerShell engine, malicious payload injection in our `.bat` files, or an exploit in our `VoidDesktop` tools), we take it extremely seriously.
+
+1. **Do NOT open a public issue.**
+2. Please email the core maintainer directly at: `[Insert Security Email Here]` (or contact us privately via Discord if no email is provided yet).
+3. Provide a detailed proof of concept or execution path.
+
+We will review the submission within 48 hours and coordinate a patch in the upcoming release.

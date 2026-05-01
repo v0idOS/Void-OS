@@ -3,6 +3,11 @@
 # WARNING: These tweaks alter core kernel scheduling, CPU mitigations, and IRQs.
 # ==============================================================================
 
+param(
+    [switch]$DryRun,
+    [bool]$IsHybridCPU = $false
+)
+
 Write-Host "[Void OS] Initializing Extreme Performance Protocol..." -ForegroundColor Cyan
 
 # ------------------------------------------------------------------------------
@@ -37,7 +42,9 @@ Set-ItemProperty -Path $featureSettings -Name "FeatureSettingsOverrideMask" -Val
 Write-Host "[Void OS] Rewriting Win32PrioritySeparation for Foreground Gaming..." -ForegroundColor Yellow
 $prioritySeparation = "HKLM:\SYSTEM\CurrentControlSet\Control\PriorityControl"
 # 0x26 = Short, Variable Quantums, Max Foreground Boost. Absolute best for gaming latency.
-Set-ItemProperty -Path $prioritySeparation -Name "Win32PrioritySeparation" -Value 38 -Type DWord -Force 
+# 0x28 = For Intel Hybrid CPUs to prevent Thread Director issues.
+$win32PriorityValue = if ($IsHybridCPU) { 40 } else { 38 }
+Set-ItemProperty -Path $prioritySeparation -Name "Win32PrioritySeparation" -Value $win32PriorityValue -Type DWord -Force 
 
 # ------------------------------------------------------------------------------
 # 4. BCD Timer & HPET Nuke

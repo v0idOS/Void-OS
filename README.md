@@ -1,78 +1,80 @@
 <div align="center">
-
-# 🌌 Void OS
-**The Ultimate Windows Playbook for Unrivaled Performance & Absolute Privacy.**
-
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Platform: Windows 11](https://img.shields.io/badge/Platform-Windows%2011-0078d7.svg?logo=windows)](https://microsoft.com)
-[![Build: AME Wizard](https://img.shields.io/badge/Build-AME%20Wizard-success.svg)](https://ameliorated.io/)
-[![Support: Patreon](https://img.shields.io/badge/Support-Patreon-F96854.svg?logo=patreon)](https://www.patreon.com/)
-[![Support: Ko-Fi](https://img.shields.io/badge/Support-Ko--Fi-FF5E5B.svg?logo=kofi)](#)
-
-*I am the one who knocks.* Void OS isn't just a generic debloat script. It is a meticulously engineered, ground-up rewrite of the Windows 11 architecture, forged through **4 months of relentless solo systems engineering by Remo**. Designed for eSports professionals and power users, Void OS rips out the telemetry, destroys the bloat, and injects pure software steroids directly into the kernel.
-
-[**Visit Website**](https://v0idos.github.io/Void-OS/) • [**Download Latest**](https://github.com/v0idOS/Void-OS/releases) • [**Support the Project**](https://www.patreon.com/)
-
+  <h1>Void OS</h1>
+  <p><strong>A modular, debloated, high-performance execution engine for Windows 11.</strong></p>
+  <a href="https://github.com/v0idOS/Void-OS/releases">Download Latest Release</a>
+  <br />
+  <br />
+  <img src="https://img.shields.io/badge/Platform-Windows%2011-0078d7.svg?logo=windows" alt="Platform" />
+  <img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License" />
+  <img src="https://img.shields.io/badge/Build-AME%20Wizard-success.svg" alt="Build Status" />
 </div>
+
+<hr />
+
+## What is Void OS?
+Void OS is not a custom ISO. It is a highly aggressive, modular deployment playbook that completely strips telemetry, unbinds unnecessary Windows background services, and rewrites the core scheduler to prioritize absolute foreground execution and low DPC latency. 
+
+Inspired by AtlasOS and ReviOS, but built with a custom programmatic engine to enforce uncompromising performance.
+
+## Core Features
+- **Uncompromised Scheduling:** Rewrites `Win32PrioritySeparation` dynamically to favor foreground tasks and tighten 0.1% lows during intensive workloads.
+- **Aggressive Debloating:** Purges Windows telemetry, unnecessary background applications, diagnostic tracking, and forced Defender scans via an automated AME Wizard deployment.
+- **Power User Desktop Toolbox:** Drops `VoidDesktop` and `VoidModules` straight onto your C:\ drive, giving you granular toggles to revert security settings, manage interface tweaks, and safely roll back aggressive registry modifications at any time.
+- **Service Annihilation:** Force-disables `SysMain`, `DPS`, and heavily caps network throttling for latency-sensitive network environments.
 
 ---
 
-## 📈 The Undeniable Proof
+## Benchmarks
 
-We don't deal in placebo tweaks. We deal in deep system-level engineering. The benchmarks below were captured on a **Laptop RTX 3050 (6GB) / i5-12450HX**.
+*Note: Benchmarks vary wildly depending on your hardware. These are expected differential improvements.*
 
-### 0% Stuttering in The Last of Us Part 1
-By locking the NT Kernel into physical RAM (`DisablePagingExecutive`) and disabling Memory Compression, Void OS achieves a perfectly flat frametime graph with literally **0% stuttering** in one of the heaviest PC ports ever made. Look at how tight the 1% Lows are to the Average FPS.
-
-<div align="center">
-  <img src="./docs/assets/benchmarks/tlou1-capframex.png" alt="CapFrameX 0% Stuttering Benchmark in TLOU Part 1" width="800"/>
-</div>
-
-### Desktop-Level DPC Latency on a Laptop
-By completely annihilating ACPI hardware polling and permanently disabling Windows Power Throttling, Void OS drops system DPC latency down to desktop levels, ensuring your system passes the strictest real-time audio tests.
-
-<div align="center">
-  <img src="./docs/assets/benchmarks/latencymon-green.png" alt="LatencyMon flawless green execution" width="800"/>
-</div>
+| Operating System | Avg FPS | 1% Low | 0.1% Low | Avg DPC Latency (μs) | Worst DPC Spike (μs) |
+|------------------|---------|--------|----------|----------------------|----------------------|
+| **Stock Windows 11** | TBD     | TBD    | TBD      | TBD                  | TBD                  |
+| **Void OS**          | TBD     | TBD    | TBD      | TBD                  | TBD                  |
 
 ---
 
-## ⚡ The Void OS Execution Engine
+## Installation
 
-Void OS features an intelligent, self-aware execution engine. It doesn't blindly apply registry keys—it analyzes your hardware first.
+> [!WARNING]
+> Installing Void OS makes deep, permanent changes to your Windows environment. We strongly recommend installing Void OS on a **clean, freshly installed** version of Windows 11.
 
-| Engineered Feature | Description | Impact |
-|--------------------|-------------|--------|
-| **Hardware AI** | The engine checks your RAM, chassis, and GPU before applying tweaks. It aborts dangerous tweaks on incompatible hardware. | Absolute 100% System Stability. Zero Blue Screens. |
-| **0% Core Parking** | Dynamic `GamingMode.ps1` profile unhides locked Windows power states and forces CPU Core Parking to `0%`. | CPU runs at 100% frequency constantly while gaming. No thermal throttling limits. |
-| **ACPI Annihilation** | Experimental script that forcefully disconnects Windows from the laptop battery sensor during gaming mode. | Plummets `ACPI.sys` DPC Latency by preventing the motherboard from polling the battery state. |
-| **Kernel Paging Lock** | Overrides standard memory management, locking `ntoskrnl.exe` and drivers into physical DDR5 RAM. | Drops hard pagefaults from 16,000+ down to under 1,500, curing micro-stutters. |
-| **Laptop Battery God** | Dynamically detects AC power states and disables CPU Turbo Boost when unplugged. | Literally **doubles** laptop battery life, instantly snapping back to 100% when plugged in. |
+1. **Download AME Wizard:** Ensure you have the latest [AME Wizard](https://ameliorated.io/) ready.
+2. **Download the Void OS Playbook:** Grab the `.apbx` file from the [Releases](https://github.com/v0idOS/Void-OS/releases) page.
+3. **Execute:** Run AME Wizard, drag and drop the `.apbx` file, and follow the setup prompts.
 
-## 💰 Support the 4-Month Grind
+For a comprehensive guide, please refer to our [Installation Guide](https://github.com/v0idOS/Void-OS/tree/main/docs/installation_guide.md).
 
-I am a 17-year-old developer from Tetovo, North Macedonia, and I built this entirely solo over the course of 4 brutal months. If Void OS has increased your FPS, lowered your latency, or saved your battery life, please consider supporting the project. Your donations allow me to keep breaking benchmark records.
+---
 
-- [**Patreon**](https://www.patreon.com/)
-- [**Ko-Fi**](https://ko-fi.com/)
+## Documentation
+- [Installation Guide](https://github.com/v0idOS/Void-OS/tree/main/docs/installation_guide.md)
+- [Feature Toggles (VoidDesktop)](https://github.com/v0idOS/Void-OS/tree/main/docs/feature_toggles.md)
+- [Known Issues](https://github.com/v0idOS/Void-OS/tree/main/docs/known_issues.md)
+- [Roadmap](https://github.com/v0idOS/Void-OS/tree/main/docs/roadmap.md)
 
-## 🚀 How to Build Locally
+---
 
-To build the `.apbx` payload yourself, you must use PowerShell from the root directory.
+## Frequently Asked Questions (FAQ)
 
-```powershell
-cd src/void-core
-..\void-tools\local-build.ps1 -ReplaceOldPlaybook -AddLiveLog -Removals WinverRequirement, Verification -DontOpenPbLocation -FileName "Void OS Elite"
-```
+**Is this an ISO file?**  
+No. Void OS uses AME Wizard to modify your existing Windows installation natively. This ensures your OS maintains driver compatibility.
 
-## 🤝 Contributing
+**Can I undo this?**  
+Void OS attempts to create a System Restore point prior to the aggressive execution phase. We also ship `VoidDesktop` to your system which contains direct reversal scripts for many of our tweaks.
 
-We welcome pull requests from elite engineers. Before submitting, please ensure your tweaks have been thoroughly benchmarked using CapFrameX and do not compromise hardware stability.
-- [Contribution Workflow](./docs/contributing.md)
+**Will I get banned in multiplayer games?**  
+Void OS disables specific Windows security features for performance gains, but it does **not** tamper with game memory or anti-cheat clients (like Vanguard, EAC, or BattlEye). It is generally safe, though playing at your own risk is always advised.
 
-## ⚖️ License
-This project is protected under the **GPL-3.0 License**. If you modify or distribute Void OS, you must keep your changes open-source and credit Remo. See the [LICENSE](LICENSE) file for details.
+---
 
-<div align="center">
-  <sub>Engineered with relentless dedication by <strong>Remo</strong>.</sub>
-</div>
+## Credits & Acknowledgements
+Void OS utilizes tools and scripts from the following exceptional open-source projects:
+- [AME Wizard](https://ameliorated.io/) - The core deployment engine.
+- [TimerResolution](https://github.com/deaglebullet/TimerResolution) - By deaglebullet.
+- [ViVeTool](https://github.com/thebookisclosed/ViVe) - By thebookisclosed.
+- [SetSvc](https://github.com/he3als/setSvc) - By he3als.
+
+## License
+Void OS is licensed under the [GNU General Public License v3.0](LICENSE).

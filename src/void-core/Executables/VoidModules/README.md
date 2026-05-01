@@ -7,11 +7,11 @@ The root of the file paths listed here starts in `src\playbook\Executables`.
 
 - Path: `\VoidModules\Tools\multichoice.exe`
 - SHA256 Hash: `6AB2FF0163AFE0FAC4E7506F9A63293421A1880076944339700A59A06578927D`
-- Source: https://github.com/Void-OS/Void-Utilities/releases/download/multichoice-v0.4/multichoice-compressed.exe
-- Repository: https://github.com/Void-OS/Void-Utilities
+- Source: https://github.com/v0idOS/Void-Utilities/releases/download/multichoice-v0.4/multichoice-compressed.exe
+- Repository: https://github.com/v0idOS/Void-Utilities
 - Version: v0.4
 - Renamed to `multichoice.exe`
-- License: [GNU General Public License v3.0](https://github.com/Void-OS/utilities/blob/main/LICENSE)
+- License: [GNU General Public License v3.0](https://github.com/v0idOS/Void-Utilities/blob/main/LICENSE)
 - Last Verified: 5/24/2024 by Xyueta
 
 ## SetTimerResolution & MeasureSleep

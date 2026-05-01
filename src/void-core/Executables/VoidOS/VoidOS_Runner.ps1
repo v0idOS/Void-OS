@@ -31,12 +31,24 @@ if ($Rollback) {
     $scripts += Get-ChildItem -Path "$PSScriptRoot\Core" -Filter "*.ps1"
     $scripts += Get-ChildItem -Path "$PSScriptRoot\Performance" -Filter "*.ps1"
     $scripts += Get-ChildItem -Path "$PSScriptRoot\Latency" -Filter "*.ps1"
+    
+    if (-not (Test-IsLaptop)) {
+        Write-VoidLog "Desktop detected. Enabling Experimental tweaks." -Type Info
+        $scripts += Get-ChildItem -Path "$PSScriptRoot\Experimental" -Filter "*.ps1"
+    } else {
+        Write-VoidLog "Laptop detected. Skipping Experimental tweaks." -Type Info
+    }
 }
 
 foreach ($script in $scripts) {
     Write-VoidLog "Executing: $($script.Name)" -Type Info
     $argsParams = @{}
     if ($DryRun) { $argsParams['DryRun'] = $true }
+    
+    if ($script.Name -eq "ExtremePerformance.ps1") {
+        $argsParams['IsHybridCPU'] = Test-IsIntelHybridCPU
+    }
+
     & $script.FullName @argsParams
 }
 
