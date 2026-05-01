@@ -5,7 +5,7 @@ actions:
 - .github/workflows/**/*
 - .github/labeler.yml
 
-# Playbook
+# Playbook :)
 
 playbook:
 - src/**/*
