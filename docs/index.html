@@ -1,178 +1,254 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Void OS | The Absolute Pinnacle of Windows Performance</title>
-  <meta name="description" content="Void OS is an elite Windows playbook built to shock Big Tech. Unrivaled performance, absolute privacy, zero bloat.">
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Void OS - Execution Engine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #080810;
+            --text: #e8e8f0;
+            --accent: #1a3aff;
+            --muted: rgba(255,255,255,0.45);
+            --border: rgba(255,255,255,0.06);
+            --font-head: 'Syne', sans-serif;
+            --font-mono: 'Space Mono', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-mono);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-head);
+            font-weight: 800;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 16px;
+            color: var(--text);
+            text-decoration: none;
+        }
+        .nav-logo:hover { text-decoration: none; }
+        .v-logo {
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent);
+            clip-path: polygon(0% 0%, 30% 0%, 50% 60%, 70% 0%, 100% 0%, 50% 100%);
+        }
+        .nav-links { display: flex; gap: 32px; }
+        .nav-links a { color: var(--text); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Hero */
+        header { padding: 120px 0; border-bottom: 1px solid var(--border); }
+        header h1 { font-size: 72px; margin-bottom: 24px; color: var(--text); }
+        .btn-group { display: flex; gap: 16px; margin-top: 48px; }
+        .btn {
+            display: inline-block;
+            padding: 16px 32px;
+            font-size: 14px;
+            text-transform: uppercase;
+            font-weight: 700;
+            text-decoration: none;
+            border: 1px solid var(--accent);
+        }
+        .btn-primary { background: var(--accent); color: var(--text); }
+        .btn-primary:hover { background: transparent; text-decoration: none; color: var(--accent); }
+        .btn-secondary { background: transparent; color: var(--text); border-color: var(--border); }
+        .btn-secondary:hover { border-color: var(--accent); text-decoration: none; }
+
+        /* Sections */
+        section { padding: 96px 0; border-bottom: 1px solid var(--border); }
+        .section-header { margin-bottom: 64px; }
+        .section-header h2 { font-size: 32px; margin-bottom: 16px; }
+        .section-header p { color: var(--muted); }
+
+        /* Features */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+        .feature-card {
+            border: 1px solid var(--border);
+            padding: 40px;
+        }
+        .feature-num { color: var(--accent); font-weight: 700; margin-bottom: 16px; display: block; }
+        .feature-card h3 { font-size: 20px; margin-bottom: 16px; }
+        .feature-card p { color: var(--muted); font-size: 13px; }
+
+        /* Table */
+        table { width: 100%; border-collapse: collapse; font-size: 13px; font-family: var(--font-mono); }
+        th, td { border: 1px solid var(--border); padding: 20px; text-align: left; }
+        th { color: var(--muted); font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Installation */
+        .step { display: flex; gap: 32px; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+        .step:last-child { border: none; margin: 0; padding: 0; }
+        .step-num { font-size: 24px; font-weight: 700; color: var(--accent); line-height: 1; margin-top: -4px;}
+        .step-content h3 { font-size: 20px; margin-bottom: 12px; }
+        .step-content p { color: var(--muted); font-size: 13px; }
+        .step-content code { background: rgba(255,255,255,0.05); padding: 2px 6px; color: var(--text); }
+
+        /* Footer */
+        footer { padding: 64px 0; text-align: center; color: var(--muted); font-size: 12px; }
+        footer a { color: var(--muted); }
+    </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="wrap topbar-inner">
-      <a class="brand" href="./index.html">VOID OS</a>
-      <nav class="nav">
-        <a href="./index.html" class="active">Home</a>
-        <a href="./features.html">Features</a>
-        <a href="./downloads.html">Downloads</a>
-        <a href="./guide.html">Docs</a>
-        <a href="https://github.com/v0idOS/Void-OS">Source</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top" class="wrap">
-    <section class="hero">
-      <p class="eyebrow">The Ultimate Windows Experience</p>
-      <h1>Built to Shock Big Tech.</h1>
-      <p class="sub">
-        Void OS isn't just another playbook. It's an uncompromising overhaul of Windows engineered for absolute peak performance, surgical privacy, and zero bloat. Experience your hardware unleashed.
-      </p>
-      <div class="actions">
-        <a class="btn accent" href="./downloads.html">Download Void OS</a>
-        <a class="btn primary" href="https://www.patreon.com/">Support the Creator</a>
-        <a class="btn" href="./guide.html">Read the Docs</a>
-      </div>
-      <div class="stats">
-        <div class="stat"><strong>100%</strong><span>Bloatware Removed</span></div>
-        <div class="stat"><strong>0ms</strong><span>Added Latency</span></div>
-        <div class="stat"><strong>Infinite</strong><span>Control</span></div>
-      </div>
-    </section>
-
-    <section id="proof" class="section">
-      <div class="section-header" style="margin-bottom: 2rem;">
-        <h2>The Undeniable Proof</h2>
-        <p class="sub">We don't deal in placebo tweaks. We deal in deep system-level engineering.</p>
-      </div>
-      <div class="grid" style="grid-template-columns: 1fr;">
-        <article class="card" style="text-align: center;">
-          <h3>0% Stuttering in The Last of Us Part 1</h3>
-          <p style="margin-bottom: 1.5rem;">Captured on a Laptop RTX 3050 (6GB) / i5-12450HX. By locking the NT Kernel into physical RAM and disabling Memory Compression, Void OS achieves a perfectly flat frametime graph with literally 0% stuttering.</p>
-          <img src="./assets/benchmarks/tlou1-capframex.png" alt="CapFrameX Benchmark" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-        </article>
-        <article class="card" style="text-align: center; margin-top: 2rem;">
-          <h3>Desktop-Level DPC Latency on a Laptop</h3>
-          <p style="margin-bottom: 1.5rem;">By annihilating ACPI hardware polling and permanently disabling Windows Power Throttling, Void OS drops system DPC latency down to desktop levels.</p>
-          <img src="./assets/benchmarks/latencymon-green.png" alt="LatencyMon Benchmark" style="max-width: 100%; border-radius: 8px; border: 1px solid var(--border-color); box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
-        </article>
-      </div>
-    </section>
-
-    <section id="creator" class="section">
-      <div class="creator-section">
-        <div>
-          <span class="creator-badge">The Visionary Behind Void OS</span>
-          <h2>4 Months of Relentless Engineering. Solo.</h2>
-          <p>
-            I'm <strong>Remo</strong>. I'm a 17-year-old from Tetovo, North Macedonia, and the founder of <a href="#" style="color: var(--accent-primary);">Void OS</a>. 
-          </p>
-          <p>
-            I spent 4 months working day and night to build Void OS from the ground up. Making AME Wizard playbooks at this level is brutally hard, but I wanted to prove that one teenager could engineer a system that outshines what billion-dollar companies ship by default. 
-          </p>
-          <p>
-            This project is free, but keeping it alive takes time and resources. If Void OS speeds up your workflow or increases your frames, consider supporting my work.
-          </p>
-          <div class="actions" style="justify-content: flex-start; margin-top: 2rem;">
-            <a class="btn accent" href="https://www.patreon.com/">Patreon</a>
-            <a class="btn" href="https://ko-fi.com/">Buy me a Coffee</a>
-          </div>
-        </div>
-        <div>
-          <!-- Abstract representation of the creator's setup or code -->
-          <div style="background: var(--bg-surface); border: 1px solid var(--border-color); border-radius: 16px; padding: 2rem; position: relative;">
-            <div style="display: flex; gap: 8px; margin-bottom: 1rem;">
-              <div style="width: 12px; height: 12px; border-radius: 50%; background: #ff5f56;"></div>
-              <div style="width: 12px; height: 12px; border-radius: 50%; background: #ffbd2e;"></div>
-              <div style="width: 12px; height: 12px; border-radius: 50%; background: #27c93f;"></div>
+    <div class="container">
+        <nav>
+            <a href="https://github.com/v0idOS/Void-OS" class="nav-logo">
+                <div class="v-logo"></div>
+                VOID OS
+            </a>
+            <div class="nav-links">
+                <a href="https://github.com/v0idOS/Void-OS/tree/main/docs">Docs</a>
+                <a href="https://github.com/v0idOS/Void-OS/releases">Releases</a>
+                <a href="https://github.com/v0idOS/Void-OS">GitHub</a>
             </div>
-            <code>
-              <span style="color: #c678dd;">function</span> <span style="color: #61afef;">initVoidOS</span>() {<br>
-              &nbsp;&nbsp;<span style="color: #c678dd;">const</span> creator = {<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;name: <span style="color: #98c379;">"Remo"</span>,<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;age: <span style="color: #d19a66;">17</span>,<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;project: <span style="color: #98c379;">"Void OS"</span>,<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;origin: <span style="color: #98c379;">"Tetovo, North Macedonia"</span><br>
-              &nbsp;&nbsp;};<br>
-              &nbsp;&nbsp;<br>
-              &nbsp;&nbsp;<span style="color: #e5c07b;">System</span>.<span style="color: #61afef;">optimize</span>({<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;telemetry: <span style="color: #d19a66;">false</span>,<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;performance: <span style="color: #98c379;">"Maximum"</span><br>
-              &nbsp;&nbsp;});<br>
-              <br>
-              &nbsp;&nbsp;<span style="color: #c678dd;">return</span> <span style="color: #98c379;">"Shock Big Tech."</span>;<br>
-              }
-            </code>
-          </div>
-        </div>
-      </div>
-    </section>
+        </nav>
 
-    <section id="features" class="section">
-      <div class="section-header">
-        <h2>Unrivaled Superiority</h2>
-        <p class="sub">Built for elites who demand responsiveness and absolute clarity.</p>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <h3>Surgical Precision</h3>
-          <p>We didn't just remove bloat. We surgically extracted every unnecessary background service, telemetry module, and UI lag inducer. The result is pure speed.</p>
-          <a href="./features.html">Deep Dive →</a>
-        </article>
-        <article class="card">
-          <h3>Absolute Privacy</h3>
-          <p>Your data is yours. Void OS implements extreme privacy configurations out of the box, shutting down tracking pipelines that other OS builds leave open.</p>
-          <a href="./features.html">Security Specs →</a>
-        </article>
-        <article class="card">
-          <h3>No Black Box</h3>
-          <p>Everything is transparent. The AME Playbook and scripts are completely open-source. Inspect the code, audit the tweaks, and see the perfection for yourself.</p>
-          <a href="https://github.com/v0idOS/Void-OS">Audit on GitHub →</a>
-        </article>
-      </div>
-    </section>
+        <header>
+            <h1>Strip it.<br>Rewire it.<br>Own it.</h1>
+            <p style="color: var(--muted); font-size: 15px; max-width: 500px; margin-top: 32px;">A modular, uncompromising execution engine for Windows 11. Designed to annihilate telemetry, dynamically tune kernel priority scheduling, and crush DPC latency.</p>
+            <div class="btn-group">
+                <a href="https://github.com/v0idOS/Void-OS/releases" class="btn btn-primary">Download .apbx</a>
+                <a href="https://github.com/v0idOS/Void-OS/tree/main/docs/installation_guide.md" class="btn btn-secondary">Read the Guide</a>
+            </div>
+        </header>
 
-    <section id="install" class="section">
-      <div class="section-header">
-        <h2>Deploy the Pinnacle</h2>
-        <p class="sub">From download to complete system transformation in minutes.</p>
-      </div>
-      <div class="steps">
-        <article class="step"><span>1</span><p>Download the exclusive <code>.apbx</code> Void OS playbook.</p></article>
-        <article class="step"><span>2</span><p>Load the playbook into AME Wizard on a fresh install.</p></article>
-        <article class="step"><span>3</span><p>Configure your elite setup (Defender, Browser, Tweaks).</p></article>
-        <article class="step"><span>4</span><p>Deploy and experience the fastest OS of your life.</p></article>
-      </div>
-      <div class="actions" style="margin-top: 3rem;">
-        <a class="btn primary" href="./downloads.html">Get Started</a>
-        <a class="btn" href="./guide.html">Full Documentation</a>
-      </div>
-    </section>
+        <section>
+            <div class="section-header">
+                <h2>What It Is</h2>
+            </div>
+            <p style="max-width: 800px; color: var(--muted);">Void OS is not a custom ISO. It is an aggressive, open-source AME Wizard playbook that systematically dismantles Windows bloat and injects a custom Master Engine to manage core system state. Instead of relying on a black-box modified image, Void natively unbinds unnecessary services, secures telemetry leaks, and drops a complete rollback toolkit directly onto your desktop.</p>
+        </section>
 
-    <section class="section cta">
-      <h2>Join the Elite</h2>
-      <p class="sub">Thousands are switching. Stop settling for default mediocrity.</p>
-      <div class="actions">
-        <a class="btn accent" href="https://github.com/v0idOS/Void-OS">GitHub Repository</a>
-        <a class="btn" href="https://github.com/v0idOS/Void-OS/discussions">Community Hub</a>
-      </div>
-    </section>
-  </main>
+        <section>
+            <div class="section-header">
+                <h2>Features</h2>
+            </div>
+            <div class="grid">
+                <div class="feature-card">
+                    <span class="feature-num">01</span>
+                    <h3>Dynamic Core Scheduling</h3>
+                    <p>Dynamically rewrites Win32PrioritySeparation to prioritize absolute foreground execution, with automated compensation for Intel Hybrid architectures to prevent Thread Director stutters.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-num">02</span>
+                    <h3>Aggressive Debloat</h3>
+                    <p>Automated removal of diagnostic tracking, telemetry subsystems, Copilot, web search integration, and forced updates via a native deployment mechanism.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-num">03</span>
+                    <h3>Native Standby Cleaner</h3>
+                    <p>An embedded memory module that asserts system privilege to automatically flush standby lists without requiring bloated third-party tools like ISLC.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-num">04</span>
+                    <h3>Power User Toggles</h3>
+                    <p>A granular toolkit injected into your C:\ drive, allowing you to instantly revert security configurations, reinstall missing applications, or reverse registry tuning.</p>
+                </div>
+            </div>
+        </section>
 
-  <footer class="footer wrap">
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <span>VOID OS</span>
-        <p>Engineered by Remo.</p>
-      </div>
-      <div class="footer-links">
-        <a href="./index.html">Home</a>
-        <a href="./features.html">Features</a>
-        <a href="./downloads.html">Downloads</a>
-        <a href="./guide.html">Docs</a>
-        <a href="https://github.com/v0idOS/Void-OS">GitHub</a>
-      </div>
+        <section>
+            <div class="section-header">
+                <h2>Benchmarks</h2>
+                <p>Metrics tracked via CapFrameX and LatencyMon.</p>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>OS Context</th>
+                        <th>Avg FPS</th>
+                        <th>1% Low</th>
+                        <th>0.1% Low</th>
+                        <th>Avg DPC (μs)</th>
+                        <th>Worst Spike (μs)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="color: var(--text);">Stock Windows 11</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                    </tr>
+                    <tr>
+                        <td style="color: var(--accent);">Void OS</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                        <td>TBD</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2>Installation</h2>
+            </div>
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Prepare</h3>
+                    <p>Start with a clean, freshly installed version of Windows 11 (24H2+). Download <a href="https://ameliorated.io" target="_blank" rel="noopener">AME Wizard</a>.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Load Playbook</h3>
+                    <p>Download the latest <code>VoidOS.apbx</code> from our <a href="https://github.com/v0idOS/Void-OS/releases">Releases</a> page and drag it into the Wizard.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Deploy</h3>
+                    <p>Select your preferred mitigation and Defender configurations, then allow the engine to execute the complete optimization sequence.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Licensed under GNU General Public License v3.0 &nbsp;|&nbsp; <a href="https://github.com/v0idOS/Void-OS">GitHub Repository</a></p>
+        </footer>
     </div>
-  </footer>
 </body>
 </html>
