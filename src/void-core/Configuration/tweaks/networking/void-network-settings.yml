@@ -7,3 +7,13 @@ actions:
     exeDir: true
     wait: true
     runas: currentUserElevated
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    value: 'NetworkThrottlingIndex'
+    data: '4294967295' # 0xFFFFFFFF
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile'
+    value: 'SystemResponsiveness'
+    data: '0'
+    type: REG_DWORD

@@ -57,12 +57,4 @@ Write-Host "[Void OS] Nuking HPET and Dynamic Ticks..." -ForegroundColor Yellow
 & bcdedit /set useplatformtick yes | Out-Null
 & bcdedit /set tscsyncpolicy Enhanced | Out-Null
 
-# ------------------------------------------------------------------------------
-# 5. Uncapping Network Throttling
-# ------------------------------------------------------------------------------
-Write-Host "[Void OS] Uncapping Network Throttling for Zero Ping..." -ForegroundColor Yellow
-$networkThrottling = "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile"
-Set-ItemProperty -Path $networkThrottling -Name "NetworkThrottlingIndex" -Value 0xFFFFFFFF -Type DWord -Force
-Set-ItemProperty -Path $networkThrottling -Name "SystemResponsiveness" -Value 0 -Type DWord -Force
-
 Write-Host "[Void OS] Extreme Performance Protocol Deployed." -ForegroundColor Green
