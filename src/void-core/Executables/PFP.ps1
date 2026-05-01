@@ -12,6 +12,12 @@ $resolutions = @{
     "user-32.png" = 32
 }
 
+# Clear cached Public AccountPictures to prevent old images from showing up
+$publicCache = "C:\Users\Public\AccountPictures"
+if (Test-Path $publicCache) {
+    Remove-Item -Path "$publicCache\*" -Recurse -Force -ErrorAction SilentlyContinue
+}
+
 # Set default profile pictures
 foreach ($image in $resolutions.Keys) {
     $resolution = $resolutions[$image]
@@ -19,7 +25,12 @@ foreach ($image in $resolutions.Keys) {
     $a = New-Object System.Drawing.Bitmap($resolution, $resolution)
     $graph = [System.Drawing.Graphics]::FromImage($a)
     $graph.DrawImage($img, 0, 0, $resolution, $resolution)
-    $a.Save("$([Environment]::GetFolderPath('CommonApplicationData'))\Microsoft\User Account Pictures\$image")
+    
+    $targetPath = "$([Environment]::GetFolderPath('CommonApplicationData'))\Microsoft\User Account Pictures\$image"
+    if (Test-Path $targetPath) {
+        Remove-Item -Path $targetPath -Force -ErrorAction SilentlyContinue
+    }
+    $a.Save($targetPath)
 }
 
 # Forcefully apply the default picture to all users by setting the UseDefaultTile policy
