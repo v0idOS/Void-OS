@@ -1,22 +1,22 @@
-## 🚀 Pull Request Summary
-A clear and concise description of what this PR does.
+﻿## 🚀 Master Engine Modification (Pull Request)
 
-## 🛠️ Type of Change
-Please check the options that are relevant.
-- [ ] 🐛 Bug fix (non-breaking change which fixes an issue)
-- [ ] ✨ New Feature (God-Tier tweak, performance script, etc.)
-- [ ] 🧹 Debloat (Removal of telemetry or useless Windows features)
-- [ ] 📚 Documentation update
+Thank you for contributing to **Void OS**. We demand uncompromised performance and clean, modular code.
 
-## ✅ Verification Checklist
-Before submitting this PR, please verify the following:
-- [ ] My code follows the Void OS architecture (`void-core`, `void-tools`).
-- [ ] I have tested these tweaks locally by building the `.apbx` and installing it on a VM or test machine.
-- [ ] **STABILITY GUARANTEE**: This change does NOT break Wi-Fi, Ethernet, or Bluetooth hardware.
-- [ ] I have updated the documentation/README if necessary.
+### 🛠️ Classification
+- [ ] 🐛 **Anomaly Patch** (Bug fix, driver restoration)
+- [ ] ✨ **Execution Tweak** (New kernel/scheduler optimization)
+- [ ] 🧹 **Annihilation** (Removal of telemetry or bloatware)
+- [ ] 📚 **Documentation**
 
-## 📊 Benchmark Proof (Required for Performance Tweaks)
-If you are submitting a performance tweak, you MUST provide evidence that it works (e.g. CapFrameX 1% Lows, LatencyMon screenshots).
+### ✅ The Void Standard (Checklist)
+Before requesting a merge, certify the following:
+- [ ] My code strictly adheres to the \oid-core\ modular architecture.
+- [ ] I have compiled the \.apbx\ locally via \local-build.ps1\ and tested the deployment.
+- [ ] **Hardware Verification:** If this is a kernel/scheduling tweak, I have implemented WMI conditional checks in PowerShell to prevent bricking incompatible systems.
+- [ ] **Rollback Capability:** I have provided a toggle script in \VoidDesktop\ to revert this change if necessary.
+
+### 📊 Benchmark Telemetry (For Performance Tweaks)
+If you are submitting a core performance tweak, **you must prove it works.** Link your CapFrameX or LatencyMon screenshots below. Placebo tweaks will be rejected.
 
 ---
-*By submitting this PR, you agree to license your contribution under the GPL-3.0 License.*
+*Credits: Void OS is built on the shoulders of the open-source community. By submitting this PR, you agree to license your code under the GPL-3.0 License.*

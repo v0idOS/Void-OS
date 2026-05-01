@@ -1,80 +1,45 @@
-name: Bug report
-description: Create a bug report to help us improve Void.
-title: "[BUG] - "
-
-labels: 
-- bug
-
+﻿name: 🐛 Bug Report
+description: Report a driver issue, stutter, or Master Engine failure.
+title: "[BUG] "
+labels: ["bug"]
 body:
-- type: checkboxes
-  attributes:
-    label: Before continuing...
-    description: Please ensure you meet the following criteria. If not, the maintainers reserve the right to close and lock your issue.
-    options:
-    - label: "I agree to follow Void's [Code of Conduct](https://github.com/Void-OS/.github/blob/main/profile/CODE_OF_CONDUCT.md)"
+  - type: markdown
+    attributes:
+      value: |
+        ## Void OS Bug Report
+        Welcome to the Void. Before reporting, please ensure you are not submitting an issue caused by third-party tweakers.
+  - type: checkboxes
+    attributes:
+      label: Pre-flight Checklist
+      description: We will close issues that ignore these rules.
+      options:
+        - label: "I am running Void OS on a clean Windows 11 installation."
+          required: true
+        - label: "I have checked the [Known Issues](https://github.com/v0idOS/Void-OS/blob/main/docs/known_issues.md) documentation."
+          required: true
+        - label: "I have not used other debloat tools (e.g. O&O ShutUp10, Chris Titus Tool) alongside Void OS."
+          required: true
+  - type: textarea
+    attributes:
+      label: Description of the Anomaly
+      description: A clear, brutal description of what broke.
+    validations:
       required: true
-    - label: "I have searched our [issue tracker](https://github.com/Void-OS/Void/issues?q=is%3Aissue) to verify that the issue hasn't been reported already"
+  - type: textarea
+    attributes:
+      label: Reproduction Steps
+      description: Exact steps to trigger the bug.
+    validations:
       required: true
-    - label: "I have searched the [Void documentation](https://docs.voidos.net) beforehand for a solution"
+  - type: input
+    attributes:
+      label: Windows Build Version
+      placeholder: e.g. 24H2 (OS Build 26100.2033)
+    validations:
       required: true
-    - label: "I am on the latest version of Void, and didn't do an unsupported upgrade"
+  - type: textarea
+    attributes:
+      label: Hardware Telemetry
+      description: CPU, RAM, GPU, and Motherboard. Specify if Laptop or Desktop.
+    validations:
       required: true
-
-- type: textarea
-  attributes:
-    label: Description
-    description: A short description of the bug.
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Steps to reproduce
-    description: The steps required to reproduce this bug (add screenshots if applicable).
-    placeholder: |
-      1. [First step] (Screenshot 1)
-      2. [Second step] (Screenshot 2)
-      3. [And so on...] (Screenshot X)
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Expected behavior
-    description: What you expect to happen (add screenshots if applicable).
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Actual behavior
-    description: What actually happened (add screenshots if applicable).
-  validations:
-    required: true
-
-- type: dropdown
-  attributes:
-    label: Void Version
-    description: 'If you''re on v0.4.0, see the workarounds page first: https://github.com/orgs/Void-OS/projects/7/views/5'
-    options:
-    - Void v0.5.0 for Windows 11 24H2
-    - Void v0.5.0 for Windows 11 25H2
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Desktop information
-    description: Your hardware specification is needed for us to define the problem.
-    placeholder: |
-      - Processor [include brand and specs]
-      - RAM [include size and generation]
-      - Storage [include size, brand, and type]
-      - GPU [include brand, specs, driver version]
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Additional content
-    description: Anything you want to add.

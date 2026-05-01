@@ -1,58 +1,33 @@
-name: Feature request
-description: Create a feature request to help us improve Void.
-title: "[FEATURE] - "
-
-labels:
-- enhancement
-
+﻿name: ✨ Feature Request
+description: Propose a God-Tier performance tweak or Master Engine capability.
+title: "[FEATURE] "
+labels: ["enhancement"]
 body:
-- type: checkboxes
-  attributes:
-    label: Before continuing...
-    description: Please ensure you meet the following criteria. If not, the maintainers reserve the right to close and lock your issue.
-    options:
-    - label: "I agree to follow Void's [Code of Conduct](https://github.com/Void-OS/.github/blob/main/profile/CODE_OF_CONDUCT.md)"
+  - type: markdown
+    attributes:
+      value: |
+        ## Void OS Feature Request
+        Propose architectural changes, new registry hooks, or scheduling optimizations.
+        *If your feature relates to aesthetics, please note that Void OS prioritizes performance over visual fluff.*
+  - type: textarea
+    attributes:
+      label: The Proposal
+      description: Explain the feature and how it interacts with the OS.
+    validations:
       required: true
-    - label: "I have searched our [issue tracker](https://github.com/Void-OS/Void/issues?q=is%3Aissue) to verify that the issue hasn't been reported already"
+  - type: textarea
+    attributes:
+      label: The "Why"
+      description: Why does Void OS need this? Detail the DPC latency reduction, FPS gain, or process isolation benefit.
+    validations:
       required: true
-    - label: "I have searched the [Void documentation](https://docs.voidos.net) beforehand for a solution"
-      required: true
-    - label: "I am on the latest version of Void, and didn't do an unsupported upgrade"
-      required: true
-
-- type: dropdown
-  attributes:
-    label: What is your feature request regarding to?
-    options:
-    - Void Playbook
-    - Other (submit it in https://github.com/Void-OS/Void/discussions)
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Is your feature request related to a problem? Please describe.
-    placeholder: |
-      e.g. I always wanted Void to...
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Describe the solution you would like.
-    placeholder: |
-      e.g. I would like Void to add...
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Describe alternatives you have considered.
-    description: If you have found a temporary fix, list it here.
-  validations:
-    required: true
-
-- type: textarea
-  attributes:
-    label: Additional context.
-    description: Add any other context or screenshots about the feature request here.
+  - type: checkboxes
+    attributes:
+      label: Stability Guarantee
+      options:
+        - label: "This tweak does NOT brick essential hardware (Wi-Fi, Bluetooth, Audio)."
+          required: true
+  - type: textarea
+    attributes:
+      label: Benchmark Evidence (Optional)
+      description: Provide links to CapFrameX or LatencyMon metrics proving the efficacy of this tweak.
