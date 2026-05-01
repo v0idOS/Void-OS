@@ -60,8 +60,8 @@ actions:
   # -------------------------------------------------------------------------- #
   #  performance\system                                                        #
   # -------------------------------------------------------------------------- #
-  # Disabled as there's no evidence it helps (likely placebo) - VOID OS NOTE: Essential for 16GB+ systems to prevent DPC spikes.
-  - !task: {path: 'tweaks\performance\system\disable-paging.yml'}
+  # -------------------------------------------------------------------------- #
+  # Paging is now dynamically handled by VoidOS_Runner.ps1 based on RAM size
   - !task: {path: 'tweaks\performance\system\optimize-ntfs.yml'}
   - !task: {path: 'tweaks\performance\system\disable-service-host-split.yml'}
   - !task: {path: 'tweaks\performance\system\win32-priority-separation.yml'}
