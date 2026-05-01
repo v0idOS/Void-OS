@@ -1,35 +1,12 @@
 # PowerShell Module: SystemOptimizationModule.psm1
 
-# Function to add and set the Void themes by default
-function Set-VoidTheme {
-    & "$windir\VoidModules\initPowerShell.ps1"
-    Set-Theme -Path "$([Environment]::GetFolderPath('Windows'))\Resources\Themes\void-v0.5.x-dark.theme"
-    Set-ThemeMRU
-
-    reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization" /v "LockScreenOverlaysDisabled" /t REG_DWORD /d 1 /f
-    reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager" /v "RotatingLockScreenEnabled" /t REG_DWORD /d 0 /f
-
-    foreach ($userKey in (Get-ChildItem "HKLM:SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Creative").PsPath) {
-        Set-ItemProperty -Path $userKey -Name 'RotatingLockScreenEnabled' -Type DWORD -Value 0 -Force
-    }
-
-    & "$windir\VoidModules\initPowerShell.ps1"
-    Set-LockscreenImage
-
-    reg add "HKCU\Software\Policies\Microsoft\Windows\Personalization" /v "ThemeFile" /t REG_SZ /d "%windir%\Resources\Themes\void-v0.5.x-dark.theme" /f
-}
-
+# Theme functions removed as per request
 # Function to change the tooltip color to blue
 function Set-TooltipColorBlue {
     reg add "HKCU\Control Panel\Colors" /v "InfoWindow" /t REG_SZ /d "246 253 255" /f
 }
 
-# Function to disallow themes to change certain personalized features
-function Disable-ThemeChangesToPersonalizedFeatures {
-    reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes" /v "ThemeChangesMousePointers" /t REG_DWORD /d 0 /f
-    reg add "HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes" /v "ThemeChangesDesktopIcons" /t REG_DWORD /d 0 /f
-}
-
+# Disallow theme changes removed
 # Function to disable 'Always Read and Scan This Section'
 function Disable-ReadAndScan {
     reg add "HKCU\SOFTWARE\Microsoft\Ease of Access" /v "selfscan" /t REG_DWORD /d 0 /f
@@ -301,10 +278,7 @@ function Set-BootConfiguration {
     & bcdedit /set bootmenupolicy legacy
 }
 
-# Function to disable wallpaper compression
-function Disable-WallpaperCompression {
-    reg add "HKCU\Control Panel\Desktop" /v "JPEGImportQuality" /t REG_DWORD /d 100 /f
-}
+# Wallpaper compression removed
 # Function to configure Start Menu
 function Set-StartMenu {
     reg add "HKLM\SOFTWARE\Microsoft\PolicyManager\current\device\Start" /v "ConfigureStartPins" /t REG_SZ /d '{"pinnedList":[{"packagedAppId":"windows.immersivecontrolpanel_cw5n1h2txyewy!microsoft.windows.immersivecontrolpanel"},{"packagedAppId":"Microsoft.WindowsTerminal_8wekyb3d8bbwe!App"},{"desktopAppLink":"%APPDATA%\\Microsoft\\Windows\\Start Menu\\Programs\\File Explorer.lnk"},{"packagedAppId":"Microsoft.WindowsStore_8wekyb3d8bbwe!App"},{"packagedAppId":"Microsoft.GamingApp_8wekyb3d8bbwe!Microsoft.Xbox.App"},{"packagedAppId":"Microsoft.WindowsCalculator_8wekyb3d8bbwe!App"},{"packagedAppId":"Microsoft.WindowsNotepad_8wekyb3d8bbwe!App"},{"packagedAppId":"Microsoft.Paint_8wekyb3d8bbwe!App"},{"packagedAppId":"Microsoft.SecHealthUI_8wekyb3d8bbwe!SecHealthUI"}]}' /f
@@ -452,9 +426,7 @@ function Set-VisualEffects {
 
 function Invoke-AllQolOptimizations {
     Write-Host "Running QOL optimizations"
-    Set-VoidTheme
     Set-TooltipColorBlue
-    Disable-ThemeChangesToPersonalizedFeatures
     Disable-ReadAndScan
     Disable-AnnoyingFeaturesAndShortcuts
     Disable-AccessibilityToolShortcut
@@ -499,7 +471,6 @@ function Invoke-AllQolOptimizations {
     Set-TaskbarAlignLeft
     Add-NetworkSharingShortcut
     Set-BootConfiguration
-    Disable-WallpaperCompression
     Set-StartMenu
     Set-WindowsInkWorkspace
     Disable-AutomaticStoreAppArchiving

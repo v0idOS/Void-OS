@@ -150,7 +150,6 @@ actions:
   # -----------------------------------------------------
   - !writeStatus: {status: 'Running QoL tweaks'}
   - !task: {path: 'tweaks\qol\bcdedit-tweaks.yml'}
-  - !task: {path: 'tweaks\qol\best-wallpaper-quality.yml'}
   - !task: {path: 'tweaks\qol\config-start-menu.yml'}
   - !task: {path: 'tweaks\qol\config-windows-ink-workspace.yml'}
   - !task: {path: 'tweaks\qol\disable-mouse-accel.yml'}
@@ -178,7 +177,6 @@ actions:
   #  qol\appearance                                                            #
   # -------------------------------------------------------------------------- #
   - !task: {path: 'tweaks\qol\appearance\blue-tooltips.yml'}
-  - !task: {path: 'tweaks\qol\appearance\void-theme.yml'}
   - !task: {path: 'tweaks\qol\appearance\disallow-theme-changes.yml'}
 
   # -------------------------------------------------------------------------- #

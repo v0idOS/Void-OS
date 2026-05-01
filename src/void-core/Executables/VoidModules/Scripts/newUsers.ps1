@@ -25,13 +25,8 @@ if ([System.Environment]::OSVersion.Version.Build -ge 22000) {
     & "$voidDesktop\4. Interface Tweaks\Context Menus\Windows 11\Old Context Menu (default).cmd" /silent
     & "$voidDesktop\4. Interface Tweaks\File Explorer Customization\Gallery\Disable Gallery (default).cmd" /silent
 
-    # Set ThemeMRU (recent themes)
-    Set-Theme -Path "$([Environment]::GetFolderPath('Windows'))\Resources\Themes\void-v0.5.x-dark.theme"
-    Set-ThemeMRU | Out-Null
+    # Removed Set-Theme as per request
 }
-
-# Set lockscreen wallpaper
-Set-LockscreenImage
 
 # Disable 'Network' in navigation pane
 & "$voidDesktop\3. General Configuration\File Sharing\Network Navigation Pane\Disable Network Navigation Pane (default).cmd" /silent
