@@ -1,9 +1,22 @@
 # MacOS
 .DS_Store
 
-# Playbooks
+# Playbooks (built artifacts — upload as GitHub Release assets manually)
 *.apbx
 *.apbx.tmp
 src/playbook/pester-tests
 src/dependencies/local-build.ps1
 src/playbook/VS Workspace.code-workspace
+
+# .NET build output — NEVER commit; publish as GitHub Release assets
+**/bin/
+**/obj/
+**/publish/
+
+# Release zip folder — executables here are Release assets, not repo files
+src/release-zip/*.exe
+src/release-zip/*.zip
+
+# Void Control Center compiled output
+src/void-core/Executables/VoidControlCenter/bin/
+src/void-core/Executables/VoidControlCenter/obj/
