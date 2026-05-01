@@ -21,3 +21,10 @@ foreach ($image in $resolutions.Keys) {
     $graph.DrawImage($img, 0, 0, $resolution, $resolution)
     $a.Save("$([Environment]::GetFolderPath('CommonApplicationData'))\Microsoft\User Account Pictures\$image")
 }
+
+# Forcefully apply the default picture to all users by setting the UseDefaultTile policy
+$registryPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+if (!(Test-Path $registryPath)) {
+    New-Item -Path $registryPath -Force | Out-Null
+}
+Set-ItemProperty -Path $registryPath -Name "UseDefaultTile" -Value 1 -Type DWord -Force
