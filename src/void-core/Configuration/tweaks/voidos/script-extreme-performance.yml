@@ -1,0 +1,9 @@
+---
+title: Execute Extreme Performance
+description: Executes the Void OS Extreme Performance hardware override module
+actions:
+  - !powerShell:
+    command: '.\VoidOS\ExtremePerformance.ps1'
+    exeDir: true
+    wait: true
+    runas: currentUserElevated

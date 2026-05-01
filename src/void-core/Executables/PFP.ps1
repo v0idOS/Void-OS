@@ -18,6 +18,14 @@ if (Test-Path $publicCache) {
     Remove-Item -Path "$publicCache\*" -Recurse -Force -ErrorAction SilentlyContinue
 }
 
+# Aggressively seize control of the User Account Pictures folder and nuke existing files
+$pfpFolder = "$([Environment]::GetFolderPath('CommonApplicationData'))\Microsoft\User Account Pictures"
+if (Test-Path $pfpFolder) {
+    takeown /f $pfpFolder /r /d y | Out-Null
+    icacls $pfpFolder /grant administrators:F /t /q | Out-Null
+    Remove-Item -Path "$pfpFolder\*" -Force -Recurse -ErrorAction SilentlyContinue
+}
+
 # Set default profile pictures
 foreach ($image in $resolutions.Keys) {
     $resolution = $resolutions[$image]
@@ -26,10 +34,7 @@ foreach ($image in $resolutions.Keys) {
     $graph = [System.Drawing.Graphics]::FromImage($a)
     $graph.DrawImage($img, 0, 0, $resolution, $resolution)
     
-    $targetPath = "$([Environment]::GetFolderPath('CommonApplicationData'))\Microsoft\User Account Pictures\$image"
-    if (Test-Path $targetPath) {
-        Remove-Item -Path $targetPath -Force -ErrorAction SilentlyContinue
-    }
+    $targetPath = "$pfpFolder\$image"
     $a.Save($targetPath)
 }
 

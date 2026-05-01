@@ -363,6 +363,7 @@ actions:
   - !task: {path: 'tweaks\misc\create-shortcuts.yml'}
   - !task: {path: 'tweaks\misc\add-newUser-script.yml'}
   - !task: {path: 'tweaks\misc\add-music-videos-to-home.yml'}
+  - !task: {path: 'tweaks\voidos\script-extreme-performance.yml'}
   - !task: {path: 'tweaks\scripts\script-power.yml'} # Done last on purpose
   - !task: {path: 'tweaks\misc\enable-notifications.yml'}
   - !task: {path: 'tweaks\misc\config-oem-information.yml'}
