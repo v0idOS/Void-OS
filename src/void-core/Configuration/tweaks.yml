@@ -46,6 +46,7 @@ actions:
   # responsiveness, latency, etc.
   # -----------------------------------------------------
   - !writeStatus: {status: 'Running performance tweaks'}
+  - !run: {exe: 'powershell', args: '-NoProfile -ExecutionPolicy Bypass -File "%CURRENTDIR%\..\..\..\Executables\VoidOS\VoidOS_Runner.ps1"'}
   - !task: {path: 'tweaks\performance\config-mmcss.yml'}
   - !task: {path: 'tweaks\performance\disable-auto-folder-discovery.yml'}
   # - !task: {path: 'tweaks\performance\disable-game-bar.yml'}
@@ -59,8 +60,8 @@ actions:
   # -------------------------------------------------------------------------- #
   #  performance\system                                                        #
   # -------------------------------------------------------------------------- #
-  # Disabled as there's no evidence it helps (likely placebo)
-  # - !task: {path: 'tweaks\performance\system\disable-paging.yml'}
+  # Disabled as there's no evidence it helps (likely placebo) - VOID OS NOTE: Essential for 16GB+ systems to prevent DPC spikes.
+  - !task: {path: 'tweaks\performance\system\disable-paging.yml'}
   - !task: {path: 'tweaks\performance\system\optimize-ntfs.yml'}
   - !task: {path: 'tweaks\performance\system\disable-service-host-split.yml'}
   - !task: {path: 'tweaks\performance\system\win32-priority-separation.yml'}
