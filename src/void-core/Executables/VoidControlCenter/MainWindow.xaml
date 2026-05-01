@@ -1,0 +1,152 @@
+<Window x:Class="VoidControlCenter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Void OS Control Center" Height="650" Width="900"
+        Background="#080810" WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#e8e8f0"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#1a3aff"/>
+            <Setter Property="Foreground" Value="#e8e8f0"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="20,10"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Opacity" Value="0.8"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="VOID OS MASTER ENGINE" FontSize="26" FontWeight="Bold" FontFamily="Courier New" Foreground="#1a3aff" Margin="0,0,0,25"/>
+
+        <Grid Grid.Row="1" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Hardware Profile -->
+            <Border BorderBrush="#11ffffff" BorderThickness="1" Padding="20" Margin="0,0,10,0">
+                <StackPanel>
+                    <TextBlock Text="SYSTEM TOPOLOGY" FontSize="14" FontWeight="Bold" Margin="0,0,0,15" Foreground="#1a3aff" FontFamily="Courier New"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                            <RowDefinition Height="25"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Text="CPU" Foreground="#77ffffff" Grid.Row="0"/>
+                        <TextBlock x:Name="txtCpu" Text="Scanning..." FontFamily="Consolas" Grid.Column="1" Grid.Row="0"/>
+                        
+                        <TextBlock Text="ARCH" Foreground="#77ffffff" Grid.Row="1"/>
+                        <TextBlock x:Name="txtArch" Text="Scanning..." FontFamily="Consolas" Grid.Column="1" Grid.Row="1"/>
+                        
+                        <TextBlock Text="RAM" Foreground="#77ffffff" Grid.Row="2"/>
+                        <TextBlock x:Name="txtRam" Text="Scanning..." FontFamily="Consolas" Grid.Column="1" Grid.Row="2"/>
+                        
+                        <TextBlock Text="GPU" Foreground="#77ffffff" Grid.Row="3"/>
+                        <TextBlock x:Name="txtGpu" Text="Scanning..." FontFamily="Consolas" Grid.Column="1" Grid.Row="3" TextTrimming="CharacterEllipsis"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <!-- Status Panel -->
+            <Border Grid.Column="1" BorderBrush="#11ffffff" BorderThickness="1" Padding="20" Margin="10,0,0,0">
+                <StackPanel>
+                    <TextBlock Text="ENGINE STATUS" FontSize="14" FontWeight="Bold" Margin="0,0,0,15" Foreground="#1a3aff" FontFamily="Courier New"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="80"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="22"/>
+                            <RowDefinition Height="22"/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Text="IRQAffinity.ps1" Grid.Row="0"/>
+                        <TextBlock x:Name="stsIRQ" Text="FAILED" Foreground="#ff3a3a" FontFamily="Consolas" Grid.Column="1" Grid.Row="0"/>
+
+                        <TextBlock Text="NDISOptimizer.ps1" Grid.Row="1"/>
+                        <TextBlock x:Name="stsNDIS" Text="FAILED" Foreground="#ff3a3a" FontFamily="Consolas" Grid.Column="1" Grid.Row="1"/>
+
+                        <TextBlock Text="PCIeASPM.ps1" Grid.Row="2"/>
+                        <TextBlock x:Name="stsASPM" Text="FAILED" Foreground="#ff3a3a" FontFamily="Consolas" Grid.Column="1" Grid.Row="2"/>
+
+                        <TextBlock Text="DynamicPaging.ps1" Grid.Row="3"/>
+                        <TextBlock x:Name="stsPaging" Text="FAILED" Foreground="#ff3a3a" FontFamily="Consolas" Grid.Column="1" Grid.Row="3"/>
+
+                        <TextBlock Text="StandbyCleaner.ps1" Grid.Row="4"/>
+                        <TextBlock x:Name="stsStandby" Text="FAILED" Foreground="#ff3a3a" FontFamily="Consolas" Grid.Column="1" Grid.Row="4"/>
+
+                        <TextBlock Text="ExtremePerformance.ps1" Grid.Row="5"/>
+                        <TextBlock x:Name="stsExtreme" Text="FAILED" Foreground="#ff3a3a" FontFamily="Consolas" Grid.Column="1" Grid.Row="5"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Readouts and Benchmarks -->
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Border BorderBrush="#11ffffff" BorderThickness="1" Padding="20" Margin="0,0,10,0">
+                <StackPanel>
+                    <TextBlock Text="TELEMETRY" FontSize="14" FontWeight="Bold" Margin="0,0,0,15" Foreground="#1a3aff" FontFamily="Courier New"/>
+                    <TextBlock Text="Last DPC Spike:" Foreground="#77ffffff" Margin="0,0,0,5"/>
+                    <TextBlock x:Name="txtDpc" Text="Waiting for data..." FontFamily="Consolas" FontSize="20" Foreground="#ff3a3a"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" BorderBrush="#11ffffff" BorderThickness="1" Padding="20" Margin="10,0,0,0">
+                <StackPanel>
+                    <TextBlock Text="BENCHMARK DIFFERENTIAL" FontSize="14" FontWeight="Bold" Margin="0,0,0,15" Foreground="#1a3aff" FontFamily="Courier New"/>
+                    <TextBlock x:Name="txtBench" Text="Loading benchmarks.json..." FontFamily="Consolas" TextWrapping="Wrap" Foreground="#e8e8f0"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- Actions -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,25,0,0">
+            <Button Content="FLUSH STANDBY" Click="BtnFlush_Click" Margin="0,0,15,0" Background="#11111a" BorderThickness="1" BorderBrush="#333344"/>
+            <Button Content="RESET NETWORK" Click="BtnNetwork_Click" Margin="0,0,15,0" Background="#11111a" BorderThickness="1" BorderBrush="#333344"/>
+            <Button Content="OPEN VOIDDESKTOP" Click="BtnDesktop_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
