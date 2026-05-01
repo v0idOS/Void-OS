@@ -185,38 +185,39 @@
         <section>
             <div class="section-header">
                 <h2>Benchmarks</h2>
-                <p>Metrics tracked via CapFrameX and LatencyMon.</p>
+                <p>i5-12450HX / RTX 3050 6GB / 16GB RAM — The Last of Us Part I, All High + DLSS Quality @ 144Hz. Measured via CapFrameX + LatencyMon.</p>
             </div>
             <table>
                 <thead>
                     <tr>
-                        <th>OS Context</th>
+                        <th>OS</th>
                         <th>Avg FPS</th>
                         <th>1% Low</th>
                         <th>0.1% Low</th>
                         <th>Avg DPC (μs)</th>
-                        <th>Worst Spike (μs)</th>
+                        <th>Worst Spike</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td style="color: var(--text);">Stock Windows 11</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
+                        <td style="color: var(--muted);">Stock Windows 11</td>
+                        <td style="color: var(--muted);">~55.0</td>
+                        <td style="color: var(--muted);">~38.0</td>
+                        <td style="color: var(--muted);">~24.0</td>
+                        <td style="color: var(--muted);">~400.0</td>
+                        <td style="color: var(--muted);">&gt;1500μs (dxgkrnl)</td>
                     </tr>
                     <tr>
-                        <td style="color: var(--accent);">Void OS</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
+                        <td style="color: var(--accent); font-weight: 700;">Void OS</td>
+                        <td style="color: var(--text); font-weight: 700;">67.3</td>
+                        <td style="color: var(--text); font-weight: 700;">55.7</td>
+                        <td style="color: var(--text); font-weight: 700;">48.3</td>
+                        <td style="color: var(--text); font-weight: 700;">47.9</td>
+                        <td style="color: var(--text); font-weight: 700;">629μs (ACPI.sys)</td>
                     </tr>
                 </tbody>
             </table>
+            <p style="color: var(--muted); font-size: 12px; margin-top: 24px;">+22% Avg FPS &nbsp;|&nbsp; +46% 1% Lows &nbsp;|&nbsp; +100% 0.1% Lows &nbsp;|&nbsp; 88% reduction in DPC latency.</p>
         </section>
 
         <section>

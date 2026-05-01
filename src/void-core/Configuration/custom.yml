@@ -42,6 +42,26 @@ actions:
     exeDir: true
     handleExitCodes: { "!0": halt }
 
+  - !writeStatus: { status: "Deploying Void Control Center" }
+  - !powerShell:
+    command: |
+      $windir = [Environment]::GetFolderPath('Windows')
+      $vccSrc = Join-Path $PSScriptRoot 'VoidControlCenter\VoidControlCenter.exe'
+      $vccDst = "$windir\VoidDesktop\VoidControlCenter.exe"
+      if (Test-Path $vccSrc) {
+          Copy-Item -Path $vccSrc -Destination $vccDst -Force
+      }
+      # Create desktop shortcut for current user
+      $desktopPath = [Environment]::GetFolderPath('CommonDesktopDirectory')
+      $shortcutPath = "$desktopPath\Void Control Center.lnk"
+      $wsh = New-Object -ComObject WScript.Shell
+      $sc = $wsh.CreateShortcut($shortcutPath)
+      $sc.TargetPath = $vccDst
+      $sc.Description = 'Void OS Control Center'
+      $sc.Save()
+    wait: true
+    exeDir: true
+
   # Prevent annoying notifications during deployment
   - !cmd:
     command: "DISABLENOTIFS.cmd"
