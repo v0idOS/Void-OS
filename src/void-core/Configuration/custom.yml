@@ -37,7 +37,6 @@ actions:
           if (!$?) { exit 2 }
       }
       Start-Process -FilePath """$windir\VoidDesktop\6. Advanced Configuration\Process Explorer\Uninstall Process Explorer.cmd""" -ArgumentList "/silent" -WindowStyle Hidden
-      Copy-Item -Path 'Themes\*' -Destination """$windir\Resources\Themes""" -Force -Recurse
     weight: 10
     wait: true
     exeDir: true
