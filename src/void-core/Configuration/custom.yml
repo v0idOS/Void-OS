@@ -23,6 +23,7 @@ actions:
     exeDir: true
     oobe: false
     onUpgrade: true
+    runas: currentUserElevated
 
   - !writeStatus: { status: "Copying files" }
   - !powerShell:
@@ -40,6 +41,7 @@ actions:
     weight: 10
     wait: true
     exeDir: true
+    runas: currentUserElevated
     handleExitCodes: { "!0": halt }
 
   - !writeStatus: { status: "Downloading Void Control Center (157MB)..." }
