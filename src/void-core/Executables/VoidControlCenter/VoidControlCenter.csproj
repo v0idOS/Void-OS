@@ -15,7 +15,6 @@
     <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <PublishSingleFile>false</PublishSingleFile>
-    <ApplicationIcon>Assets\logo.ico</ApplicationIcon>
     <Title>Void Control Center</Title>
     <AssemblyVersion>1.0.0</AssemblyVersion>
   </PropertyGroup>

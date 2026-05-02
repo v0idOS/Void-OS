@@ -8,7 +8,10 @@ param(
     [bool]$IsHybridCPU = $false
 )
 
-Write-Host "[Void OS] Initializing Extreme Performance Protocol..." -ForegroundColor Cyan
+$engineDir = Join-Path $PSScriptRoot "..\Engine"
+Import-Module "$engineDir\Logger.psm1" -ErrorAction SilentlyContinue
+
+Write-VoidLog "Initializing Extreme Performance Protocol..." -Type Info
 
 # ------------------------------------------------------------------------------
 # 1. MSI Mode (Message Signaled Interrupts) Injection
@@ -57,4 +60,4 @@ Write-Host "[Void OS] Nuking HPET and Dynamic Ticks..." -ForegroundColor Yellow
 & bcdedit /set useplatformtick yes | Out-Null
 & bcdedit /set tscsyncpolicy Enhanced | Out-Null
 
-Write-Host "[Void OS] Extreme Performance Protocol Deployed." -ForegroundColor Green
+Write-VoidLog "Extreme Performance Protocol Deployed" -Type Success

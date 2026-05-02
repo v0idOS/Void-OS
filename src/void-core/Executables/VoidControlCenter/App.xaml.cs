@@ -15,6 +15,6 @@ namespace VoidControlCenter
             _window.Activate();
         }
 
-        private Window? _window;
+        private Window _window;
     }
 }

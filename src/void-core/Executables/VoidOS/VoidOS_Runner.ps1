@@ -3,9 +3,9 @@ param(
     [switch]$Rollback
 )
 
-$PSScriptRoot = Split-Path -Parent $MyInvocation.MyCommand.Definition
 $engineDir = Join-Path $PSScriptRoot "Engine"
 Import-Module "$engineDir\Logger.psm1" -ErrorAction Stop
+Import-Module "$engineDir\HardwareDetection.psm1" -ErrorAction Stop
 
 Write-VoidLog "Initializing Void OS Engine v1.0..." -Type Info
 

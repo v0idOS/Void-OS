@@ -46,19 +46,27 @@ actions:
   - !powerShell:
     command: |
       $windir = [Environment]::GetFolderPath('Windows')
-      $vccSrc = Join-Path $PSScriptRoot 'VoidControlCenter\VoidControlCenter.exe'
       $vccDst = "$windir\VoidDesktop\VoidControlCenter.exe"
-      if (Test-Path $vccSrc) {
-          Copy-Item -Path $vccSrc -Destination $vccDst -Force
+      $vccUrl = 'https://github.com/v0idOS/Void-OS/releases/latest/download/VoidControlCenter.exe'
+      try {
+          Write-Host "[Void OS] Downloading Void Control Center from GitHub..."
+          [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+          Invoke-WebRequest -Uri $vccUrl -OutFile $vccDst -UseBasicParsing -ErrorAction Stop
+          Write-Host "[Void OS] VCC downloaded successfully."
+      } catch {
+          Write-Host "[Void OS] WARNING: Could not download VCC. Check internet connection. Skipping."
       }
-      # Create desktop shortcut for current user
-      $desktopPath = [Environment]::GetFolderPath('CommonDesktopDirectory')
-      $shortcutPath = "$desktopPath\Void Control Center.lnk"
-      $wsh = New-Object -ComObject WScript.Shell
-      $sc = $wsh.CreateShortcut($shortcutPath)
-      $sc.TargetPath = $vccDst
-      $sc.Description = 'Void OS Control Center'
-      $sc.Save()
+      # Create desktop shortcut for all users
+      if (Test-Path $vccDst) {
+          $desktopPath = [Environment]::GetFolderPath('CommonDesktopDirectory')
+          $shortcutPath = "$desktopPath\Void Control Center.lnk"
+          $wsh = New-Object -ComObject WScript.Shell
+          $sc = $wsh.CreateShortcut($shortcutPath)
+          $sc.TargetPath = $vccDst
+          $sc.Description = 'Void OS Control Center'
+          $sc.Save()
+          Write-Host "[Void OS] Desktop shortcut created."
+      }
     wait: true
     exeDir: true
 
