@@ -42,7 +42,7 @@ actions:
     exeDir: true
     handleExitCodes: { "!0": halt }
 
-  - !writeStatus: { status: "Deploying Void Control Center" }
+  - !writeStatus: { status: "Downloading Void Control Center (157MB)..." }
   - !powerShell:
     command: |
       $windir = [Environment]::GetFolderPath('Windows')
@@ -51,10 +51,10 @@ actions:
       try {
           Write-Host "[Void OS] Downloading Void Control Center from GitHub..."
           [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-          Invoke-WebRequest -Uri $vccUrl -OutFile $vccDst -UseBasicParsing -ErrorAction Stop
+          Invoke-WebRequest -Uri $vccUrl -OutFile $vccDst -UseBasicParsing -TimeoutSec 300 -ErrorAction Stop
           Write-Host "[Void OS] VCC downloaded successfully."
       } catch {
-          Write-Host "[Void OS] WARNING: Could not download VCC. Check internet connection. Skipping."
+          Write-Host "[Void OS] WARNING: Could not download VCC — $($_.Exception.Message). Skipping."
       }
       # Create desktop shortcut for all users
       if (Test-Path $vccDst) {
