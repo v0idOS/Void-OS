@@ -12,3 +12,5 @@ if (-not $DryRun) {
     Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" -Name "PowerThrottlingOff" -ErrorAction SilentlyContinue
 }
 Write-VoidLog "[RESTORE] USB Selective Suspend and Power Throttling restored to Windows Default" -Type Success
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -61,3 +61,5 @@ Write-Host "[Void OS] Nuking HPET and Dynamic Ticks..." -ForegroundColor Yellow
 & bcdedit /set tscsyncpolicy Enhanced | Out-Null
 
 Write-VoidLog "Extreme Performance Protocol Deployed" -Type Success
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

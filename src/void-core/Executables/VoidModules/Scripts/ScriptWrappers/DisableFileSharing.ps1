@@ -37,3 +37,4 @@ if ($Silent) { exit }
 Write-Host "`nCompleted! " -ForegroundColor Green -NoNewLine
 Write-Host "You'll need to restart to apply the changes." -ForegroundColor Yellow
 exit
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

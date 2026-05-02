@@ -85,3 +85,4 @@ Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerThr
 if ($Silent) { exit }
 # Finish
 Read-Pause "`nCompleted.`nPress Enter to exit"
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

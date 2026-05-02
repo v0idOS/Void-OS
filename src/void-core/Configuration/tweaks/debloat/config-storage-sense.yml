@@ -25,3 +25,5 @@ actions:
   - !scheduledTask: {path: '\Microsoft\Windows\DiskCleanup\SilentCleanup', operation: enable}
 
     # There's also subkeys for OneDrive cleanup, but as OneDrive is uninstalled, they probably aren't relevant
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

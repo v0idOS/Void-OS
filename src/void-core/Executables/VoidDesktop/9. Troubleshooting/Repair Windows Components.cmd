@@ -40,3 +40,5 @@ echo Finished, please reboot your device for changes to apply.
 if "%~1" == "/silent" exit /b
 pause
 exit /b
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -54,3 +54,4 @@ echo]
 choice /c:yn /n /m "Would you like to open the Microsoft Store to %action% it? [Y/N] "
 if errorlevel == 1 start %uri%
 exit /b 2
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

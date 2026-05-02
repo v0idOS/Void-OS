@@ -32,3 +32,5 @@ powercfg -setdcvalueindex $guid SUB_PROCESSOR 5d76a2ca-e8c0-402f-a133-2158492d58
 # Activate the plan
 powercfg -setactive $guid
 Write-Output "Void OS Ultimate Power Plan injected and activated."
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -25,3 +25,4 @@ Copy-Item $defaultShortcut -Destination "$([Environment]::GetFolderPath('CommonS
 Write-Title "Creating services restore shortcut..."
 $desktop = "$windir\VoidDesktop"
 New-Shortcut -Source "$desktop\9. Troubleshooting\Set services to defaults.cmd" -Destination "$desktop\6. Advanced Configuration\Services\Set services to defaults.lnk"
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

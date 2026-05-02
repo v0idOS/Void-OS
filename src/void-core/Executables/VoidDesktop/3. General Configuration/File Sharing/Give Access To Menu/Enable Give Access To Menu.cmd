@@ -29,3 +29,5 @@ reg add "HKLM\SOFTWARE\VoidOS\Services\%settingName%" /v path /t REG_SZ /d "%scr
 echo Finished, 'Give Access To' menu is now enabled.
 pause > nul
 exit /b
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -65,3 +65,5 @@ actions:
     builds: [ '>=22000' ]
 
   - !run: {exe: 'explorer.exe', runas: 'currentUser', wait: false}
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

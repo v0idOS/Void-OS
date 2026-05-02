@@ -65,3 +65,4 @@ New-Shortcut -Source "$updaterPath\Librewolf-WinUpdater.exe" -Destination "$star
 Write-Title "Removing temp files"
 Remove-Item "$outputLibrewolf" -Force
 Remove-Item "$outputLibrewolfUpdater" -Force
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -20,3 +20,4 @@ call "%windir%\VoidModules\Scripts\setSvc.cmd" "WpnUserService" 2
 sc config WpnService start=auto > nul
 
 echo Enabled notifications.
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

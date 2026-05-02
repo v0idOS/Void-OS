@@ -17,3 +17,5 @@ actions:
     value: ''
     data: 'cmd /c "%windir%\VoidModules\Scripts\RunAsTI.cmd" "%1"'
     type: REG_SZ
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -10,3 +10,5 @@ actions:
     # Disable the creation of 8.3 character-length file names on FAT- and NTFS-formatted volumes
     # https://ttcshelbyville.wordpress.com/2018/12/02/should-you-disable-8dot3-for-performance-and-security
   - !run: {exe: 'fsutil', args: '8dot3name set 1'}
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

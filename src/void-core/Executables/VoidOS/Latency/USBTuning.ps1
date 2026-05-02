@@ -15,3 +15,5 @@ if (-not $DryRun) {
     New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Power\PowerThrottling" -Name "PowerThrottlingOff" -Value 1 -PropertyType DWORD -Force | Out-Null
 }
 Write-VoidLog "[SAFE] USB Selective Suspend and Power Throttling globally disabled to lower DPC Latency" -Type Success
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

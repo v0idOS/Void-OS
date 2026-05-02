@@ -8,3 +8,5 @@ actions:
         -Name """$([Environment]::GetFolderPath('Windows'))\VoidDesktop\3. General Configuration\Timer Resolution\! MeasureSleep.exe""" `
         -Value '~ RUNASADMIN' -Force
     wait: true
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

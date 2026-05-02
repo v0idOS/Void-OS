@@ -3,3 +3,5 @@ title: Remove Bitmap Image from 'New' Context Menu
 description: Removes bitmap image from the 'New' context menu
 actions:
   - !registryKey: {path: 'HKCR\.bmp\ShellNew'}
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

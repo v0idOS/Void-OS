@@ -13,7 +13,19 @@ $servicesToDisable = @(
     "BITS",         # Background Intelligent Transfer (Update background downloads)
     "edgeupdate",   # Microsoft Edge Update Service
     "DusmSvc",      # Data Usage Routing
-    "wisvc"         # Windows Insider Service
+    "wisvc",        # Windows Insider Service
+    "Spooler",      # Print Spooler (Disables printing)
+    "PcaSvc",       # Program Compatibility Assistant
+    "WpnService",   # Windows Push Notifications
+    "MapsBroker",   # Downloaded Maps Manager
+    "lfsvc",        # Geolocation Service
+    "SgrmBroker",   # System Guard Runtime Monitor
+    "Wscsvc",       # Windows Security Center
+    "Sense",        # Windows Defender Advanced Threat Protection
+    "WdNisSvc",     # Microsoft Defender Antivirus Network Inspection
+    "CDPUserSvc",   # Connected Devices Platform (Syncing)
+    "OneSyncSvc",   # Sync Host (Mail/Calendar)
+    "UserDataSvc"   # User Data Access
 )
 
 foreach ($svc in $servicesToDisable) {
@@ -24,3 +36,5 @@ foreach ($svc in $servicesToDisable) {
         Write-VoidLog "[SAFE] $svc not found" -Type Skipped
     }
 }
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

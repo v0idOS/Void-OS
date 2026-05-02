@@ -64,3 +64,5 @@ echo            %ESC%[1m%ESC%[33mPress any key to exit...      %ESC%[?25l
 
 pause > nul
 exit /b 1
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

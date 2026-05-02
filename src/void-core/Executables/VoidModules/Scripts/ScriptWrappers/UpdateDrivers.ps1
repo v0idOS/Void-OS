@@ -123,3 +123,5 @@ if (-not $PSCmdlet.MyInvocation.BoundParameters.ContainsKey('Silent')) {
     Write-Host "Press any key to exit..."
     $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
 }
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

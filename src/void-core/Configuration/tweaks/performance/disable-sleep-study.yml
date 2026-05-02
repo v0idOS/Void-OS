@@ -12,3 +12,5 @@ actions:
     exe: 'wevtutil.exe'
     args: 'set-log "Microsoft-Windows-UserModePowerService/Diagnostic" /e:false'
   - !scheduledTask: {path: '\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem', operation: disable}
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

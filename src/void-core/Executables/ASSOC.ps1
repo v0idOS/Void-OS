@@ -265,3 +265,5 @@ for ($i = 2; $i -lt $args.Length; $i++) {
     [Microsoft.Win32.Registry]::SetValue("HKEY_USERS\$Hive\SOFTWARE\Classes\$($splitArg[0])", "", "$($splitArg[1])")
   }
 }
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

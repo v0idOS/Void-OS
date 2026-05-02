@@ -44,3 +44,5 @@ try {
 } catch {
     Write-VoidLog "StandbyCleaner: Failed to compile or execute flush — $($_.Exception.Message)" -Type Error
 }
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

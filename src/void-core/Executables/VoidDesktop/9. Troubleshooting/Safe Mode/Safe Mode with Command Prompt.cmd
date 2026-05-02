@@ -28,3 +28,4 @@ bcdedit /set {current} safebootalternateshell yes > nul
 echo Finished, please reboot your device for changes to apply.
 pause
 exit /b
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

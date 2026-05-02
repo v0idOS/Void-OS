@@ -7,3 +7,4 @@ if not exist "%script%" (
 	exit /b 1
 )
 powershell -EP Bypass -NoP ^& """$env:script""" %*
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

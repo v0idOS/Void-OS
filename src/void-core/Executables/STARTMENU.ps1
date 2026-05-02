@@ -42,3 +42,4 @@ foreach ($userKey in (Get-RegUserPaths).PsPath) {
     Write-Output "Removing advertisements/stubs from Start Menu (23H2+)"
     Remove-ItemProperty -Path "$userKey\SOFTWARE\Microsoft\Windows\CurrentVersion\Start" -Name 'Config' -Force -EA 0
 }
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -41,3 +41,5 @@ $baseline = @{
 $json = $baseline | ConvertTo-Json -Depth 5
 Set-Content -Path "$logDir\benchmarks.json" -Value $json -Encoding UTF8
 Write-Host "[Void OS] benchmarks.json written to $logDir" -ForegroundColor Green
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

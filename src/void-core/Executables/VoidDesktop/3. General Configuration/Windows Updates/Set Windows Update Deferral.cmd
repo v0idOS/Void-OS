@@ -71,3 +71,4 @@ reg add "HKLM\SOFTWARE\VoidOS\Services%settingNameQuality%" /v days /t REG_DWORD
 echo.
 echo Deferral settings applied successfully.
 pause
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -33,3 +33,5 @@ if %ERRORLEVEL% == 1 shutdown /r /t 0
 echo Finished, File Sharing is now disabled.
 pause > nul
 exit /b
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

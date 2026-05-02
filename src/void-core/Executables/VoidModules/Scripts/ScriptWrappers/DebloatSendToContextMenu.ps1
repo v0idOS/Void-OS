@@ -108,3 +108,4 @@ foreach ($item in $items.GetEnumerator()) {
 if ((Read-MessageBox -Title "Void - Send To Debloat" -Body 'Would you like to restart Windows Explorer? This will finalize the Send-To changes.' -Icon Info) -eq 'Yes') {
     Stop-Process -Name explorer -Force
 }
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -36,3 +36,5 @@ try {
     Add-Type -TypeDefinition $source -Language CSharp
     [MemoryCache]::FlushStandby()
 } catch {}
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

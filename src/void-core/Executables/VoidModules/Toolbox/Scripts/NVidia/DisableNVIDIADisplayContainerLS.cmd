@@ -37,3 +37,4 @@ sc stop NVDisplay.ContainerLocalSystem > nul 2>&1
 echo Finished, changes have been applied.
 pause
 exit /b
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

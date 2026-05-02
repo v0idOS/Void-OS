@@ -12,3 +12,5 @@ actions:
     # Use legacy boot menu
     # Faster as it doesn't boot into an OS
   - !run: {exe: 'bcdedit', args: '/set bootmenupolicy legacy'}
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

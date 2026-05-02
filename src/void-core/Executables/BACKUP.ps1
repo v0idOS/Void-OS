@@ -21,3 +21,4 @@ Get-ChildItem "HKLM:\SYSTEM\CurrentControlSet\Services" | ForEach-Object {
 
 # Set-Content can only do UTF8 with BOM, which doesn't work with reg.exe
 [System.IO.File]::WriteAllLines($FilePath, $content, (New-Object System.Text.UTF8Encoding $false))
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

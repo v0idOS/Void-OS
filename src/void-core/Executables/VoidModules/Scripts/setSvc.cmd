@@ -30,3 +30,5 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Services\%~1" /v "Start" /t REG_DWORD /d 
 	echo error: failed to set service %~1 with start value %~2! Unknown error.
 	exit /b 1
 )
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

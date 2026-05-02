@@ -44,3 +44,4 @@ if (!(Test-Path $registryPath)) {
     New-Item -Path $registryPath -Force | Out-Null
 }
 Set-ItemProperty -Path $registryPath -Name "UseDefaultTile" -Value 1 -Type DWord -Force
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

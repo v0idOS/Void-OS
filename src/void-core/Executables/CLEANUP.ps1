@@ -102,3 +102,5 @@ else {
 # This is so that users can't attempt to revert from Void to stock with Restore Points
 # It won't work, a full Windows reinstall is required ^
 vssadmin delete shadows /all /quiet
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

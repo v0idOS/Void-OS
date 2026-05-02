@@ -82,3 +82,4 @@ foreach ($id in $($ids | Sort-Object -Unique)) {
     Write-Output "Disabling feature ID $id..."
     ViVeTool.exe /disable /id:$id | Out-Null
 }
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

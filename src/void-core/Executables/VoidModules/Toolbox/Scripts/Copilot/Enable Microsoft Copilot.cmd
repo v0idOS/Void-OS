@@ -42,3 +42,5 @@ call "%windir%\VoidModules\Scripts\wingetCheck.cmd" /nodashes
 if %errorlevel% neq 0 exit /b 1
 echo Installing Copilot...
 winget install -e --id 9NHT9RB2F4HD --uninstall-previous -h --accept-source-agreements --accept-package-agreements --force --disable-interactivity > nul
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

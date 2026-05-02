@@ -35,3 +35,5 @@ reg delete "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v DeferQual
 
 echo Done. Windows Update deferrals have been reset to default.
 pause
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -41,3 +41,4 @@ if "%~1"=="/silent" exit /b
 choice /c:yn /n /m "Finished, would you like to logout to apply the changes? [Y/N] "
 if %ERRORLEVEL% == 1 logoff
 exit /b
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

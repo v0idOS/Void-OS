@@ -71,3 +71,4 @@ echo On Windows 11, having search indexing disabled causes a graphical bug in we
 choice /c:yn /n /m "Would you like to enable search indexing to fix it? [Y/N] "
 if %errorlevel%==1 call "%windir%\VoidDesktop\3. General Configuration\Search Indexing\Enable Search Indexing.cmd" /silent & set ____restart=true
 exit /b
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

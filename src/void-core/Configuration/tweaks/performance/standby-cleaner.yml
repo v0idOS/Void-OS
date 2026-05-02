@@ -8,3 +8,5 @@ actions:
   - !run:
       exe: 'powershell'
       args: '-NoProfile -Command "$action = New-ScheduledTaskAction -Execute ''powershell.exe'' -Argument ''-WindowStyle Hidden -NoProfile -ExecutionPolicy Bypass -File \"$env:SystemRoot\VoidModules\Scripts\StandbyCleaner.ps1\"''; $trigger = New-ScheduledTaskTrigger -Once -At (Get-Date) -RepetitionInterval (New-TimeSpan -Minutes 10); Register-ScheduledTask -TaskName ''VoidStandbyCleaner'' -Action $action -Trigger $trigger -User ''SYSTEM'' -Force"'
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

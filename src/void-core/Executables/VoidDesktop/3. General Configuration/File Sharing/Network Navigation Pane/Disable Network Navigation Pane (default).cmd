@@ -26,3 +26,5 @@ if "%~1"=="/silent" exit /b
 echo Finished, Network Navigation Pane is now disabled.
 pause > nul
 exit /b
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

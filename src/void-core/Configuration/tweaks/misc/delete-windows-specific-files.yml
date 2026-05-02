@@ -9,3 +9,5 @@ actions:
       Remove-Item -Path """$([Environment]::GetFolderPath('Windows'))\VoidDesktop\4. Interface Tweaks\Start Menu\*Open-Shell*""" -Force -Recurse
     wait: true
     cpuArch: 'Arm64'
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

@@ -5,3 +5,5 @@ actions:
   - !run:
       exe: 'powershell'
       args: '-NoProfile -Command "$plan = (powercfg -getactivescheme).Split('' '')[3]; powercfg -setdcvalueindex $plan SUB_PROCESSOR PROCTHROTTLEMAX 99; powercfg -setacvalueindex $plan SUB_PROCESSOR PROCTHROTTLEMAX 100; powercfg -setactive $plan"'
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

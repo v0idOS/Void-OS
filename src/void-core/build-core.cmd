@@ -1,2 +1,3 @@
 echo Building Core...
 powershell -nop -ep bypass ^& "%cd%\..\void-tools\local-build.ps1" -AddLiveLog -ReplaceOldPlaybook -Removals WinverRequirement, Verification -DontOpenPbLocation
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

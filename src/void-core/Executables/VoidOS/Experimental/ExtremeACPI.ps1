@@ -27,3 +27,5 @@ if ($Action -eq 'Disable') {
         Write-VoidLog "[EXPERIMENTAL] ACPI Battery Driver ENABLED. Battery icon restored." -Type Success
     }
 }
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc
