@@ -10,24 +10,21 @@ if (-not (Test-IsIntelHybridCPU)) {
 }
 
 try {
-    # Dynamically detect P-Cores to find the E-Core offset
-    # In Windows, logical processors are listed P-Cores first, then E-Cores.
-    $perfCores = (Get-WmiObject -Query "SELECT * FROM Win32_Processor").NumberOfCores
-    $logicalProcs = (Get-WmiObject -Query "SELECT * FROM Win32_Processor").NumberOfLogicalProcessors
-    
-    # Heuristic for Intel Hybrid: P-Cores have HyperThreading, E-Cores do not.
-    # Total Logical = (P * 2) + E. Total Physical = P + E.
-    # P = Total Logical - Total Physical
-    # E = Total Physical - P
-    $pCores = $logicalProcs - $perfCores
-    $eCores = $perfCores - $pCores
-    
-    # E-cores start after P-cores' logical processors (P * 2)
+    # Topology derivation:
+    # total logical = (P * 2) + E
+    # total physical = P + E
+    # => P = total logical - total physical
+    $cpu = Get-CimInstance Win32_Processor | Select-Object -First 1
+    $totalPhysical = [int]$cpu.NumberOfCores
+    $totalLogical = [int]$cpu.NumberOfLogicalProcessors
+
+    $pCores = $totalLogical - $totalPhysical
     $baseProcessor = $pCores * 2
-    
-    # Failsafe
-    if ($baseProcessor -le 0 -or $eCores -le 0) {
-        $baseProcessor = 4; $eCores = 4
+    $eCores = $totalLogical - $baseProcessor
+
+    if ($baseProcessor -lt 0 -or $eCores -le 0) {
+        Write-VoidLog "Invalid CPU topology detected (BaseProcessor=$baseProcessor, ECoreCount=$eCores). Skipping RSS E-Core pinning." -Type Skipped
+        return
     }
 
     Write-VoidLog "Detected $pCores P-Cores and $eCores E-Cores. Routing RSS starting at Core $baseProcessor..." -Type Info
