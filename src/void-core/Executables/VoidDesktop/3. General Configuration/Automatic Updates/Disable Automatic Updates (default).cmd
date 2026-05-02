@@ -17,9 +17,15 @@ fltmc > nul 2>&1 || (
 reg add "HKLM\SOFTWARE\VoidOS\Services\%settingName%" /v state /t REG_DWORD /d %stateValue% /f > nul
 reg add "HKLM\SOFTWARE\VoidOS\Services\%settingName%" /v path /t REG_SZ /d "%scriptPath%" /f > nul
 
+:: Aggressive Windows Update Annihilation
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoUpdate" /t REG_DWORD /d 1 /f > nul
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "AUOptions" /t REG_DWORD /d 2 /f > nul
-:: Breaks 'Receive updates for other Microsoft products'
-:: reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v "NoAutoUpdate" /t REG_DWORD /d 1 /f > nul
+
+:: Stop and disable background update services to reclaim RAM and drop processes
+sc config wuauserv start= disabled > nul 2>&1
+sc stop wuauserv > nul 2>&1
+sc config UsoSvc start= disabled > nul 2>&1
+sc stop UsoSvc > nul 2>&1
 
 if "%~1" == "/justcontext" exit /b
 if "%~1"=="/silent" exit /b

@@ -5,20 +5,22 @@ Import-Module "$engineDir\HardwareDetection.psm1"
 
 Write-VoidLog "Starting Core Service Optimization..." -Type Info
 
-# SysMain
-if (Test-ServiceExists "SysMain") {
-    if (-not $DryRun) { Set-Service -Name "SysMain" -StartupType Manual }
-    Write-VoidLog "[SAFE] SysMain (SuperFetch) set to Manual to prevent disk spikes" -Type Success
-} else { Write-VoidLog "[SAFE] SysMain not found" -Type Skipped }
+$servicesToDisable = @(
+    "SysMain",      # Superfetch (disk spikes)
+    "DPS",          # Diagnostic Policy Service
+    "DiagTrack",    # Telemetry
+    "WSearch",      # Windows Search Indexer (huge background CPU/RAM)
+    "BITS",         # Background Intelligent Transfer (Update background downloads)
+    "edgeupdate",   # Microsoft Edge Update Service
+    "DusmSvc",      # Data Usage Routing
+    "wisvc"         # Windows Insider Service
+)
 
-# DPS
-if (Test-ServiceExists "DPS") {
-    if (-not $DryRun) { Set-Service -Name "DPS" -StartupType Manual }
-    Write-VoidLog "[SAFE] DPS (Diagnostic Policy) set to Manual" -Type Success
-} else { Write-VoidLog "[SAFE] DPS not found" -Type Skipped }
-
-# DiagTrack
-if (Test-ServiceExists "DiagTrack") {
-    if (-not $DryRun) { Set-Service -Name "DiagTrack" -StartupType Disabled }
-    Write-VoidLog "[SAFE] DiagTrack (Telemetry) completely disabled" -Type Success
-} else { Write-VoidLog "[SAFE] DiagTrack not found" -Type Skipped }
+foreach ($svc in $servicesToDisable) {
+    if (Test-ServiceExists $svc) {
+        if (-not $DryRun) { Set-Service -Name $svc -StartupType Disabled -ErrorAction SilentlyContinue }
+        Write-VoidLog "[EXTREME] $svc service disabled completely" -Type Success
+    } else {
+        Write-VoidLog "[SAFE] $svc not found" -Type Skipped
+    }
+}

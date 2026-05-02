@@ -54,7 +54,8 @@ actions:
           Invoke-WebRequest -Uri $vccUrl -OutFile $vccDst -UseBasicParsing -TimeoutSec 300 -ErrorAction Stop
           Write-Host "[Void OS] VCC downloaded successfully."
       } catch {
-          Write-Host "[Void OS] WARNING: Could not download VCC — $($_.Exception.Message). Skipping."
+          Write-Host "[Void OS] ERROR: Could not download VCC — $($_.Exception.Message)."
+          exit 1
       }
       # Create desktop shortcut for all users
       if (Test-Path $vccDst) {
