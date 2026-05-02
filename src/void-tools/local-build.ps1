@@ -207,7 +207,12 @@ while ($true) { Get-Content -Wait -LiteralPath $a -EA 0 | Write-Output; Start-Sl
 	if (Test-Path $tempStartYmlPath) { $excludeFiles += "start.yml" }
 	if (Test-Path $tempPbConfPath) { $excludeFiles += "playbook.conf" }
 	$files = Separator "$rootTemp\7zFiles.txt"
-	(Get-ChildItem -File -Exclude $excludeFiles -Recurse).FullName | Resolve-Path -Relative | ForEach-Object {$_.Substring(2)} | Out-File $files -Encoding utf8
+	(Get-ChildItem -File -Exclude $excludeFiles -Recurse | Where-Object {
+		($_.FullName -notlike '*\bin\*') -and
+		($_.FullName -notlike '*\obj\*') -and
+		($_.FullName -notlike '*\publish\*') -and
+		($_.FullName -notlike '*\VoidControlCenter-repo\*')
+	}).FullName | Resolve-Path -Relative | ForEach-Object {$_.Substring(2)} | Out-File $files -Encoding utf8
 
 	if (!$NoPassword) { $pass = '-pmalte' }
 	& $7zPath a -spf -y -mx1 $pass -tzip "$apbxPath" `@"$files" | Out-Null
