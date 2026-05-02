@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="VoidControlCenter.Views.OverviewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctk="using:CommunityToolkit.WinUI.Controls"
+    RequestedTheme="Dark"
+    Background="Transparent">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Spacing="24" Padding="40,32,40,40">
+
+            <!-- Header -->
+            <StackPanel Spacing="4">
+                <TextBlock Text="VOID OS" FontSize="11" FontWeight="SemiBold"
+                           Foreground="#1a3aff" CharacterSpacing="200"/>
+                <TextBlock Text="System Overview" FontSize="28"
+                           FontFamily="Segoe UI Variable Display" FontWeight="SemiBold"
+                           Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                <TextBlock x:Name="txtLastRun" Text="Engine last executed: checking..."
+                           FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+            </StackPanel>
+
+            <!-- Hardware Cards Row -->
+            <Grid ColumnSpacing="16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- CPU Card -->
+                <Border Grid.Column="0" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                        CornerRadius="8" Padding="20,16">
+                    <StackPanel Spacing="8">
+                        <FontIcon Glyph="&#xE950;" FontSize="20" Foreground="#1a3aff"/>
+                        <TextBlock Text="CPU" FontSize="11" FontWeight="SemiBold"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   CharacterSpacing="100"/>
+                        <TextBlock x:Name="txtCpu" Text="Detecting..." FontSize="13"
+                                   FontWeight="SemiBold" TextWrapping="Wrap"
+                                   Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                        <Border Background="#0d1a3a" CornerRadius="4" Padding="6,3">
+                            <TextBlock x:Name="txtArch" Text="..." FontSize="11"
+                                       Foreground="#1a3aff" FontFamily="Consolas"/>
+                        </Border>
+                    </StackPanel>
+                </Border>
+
+                <!-- RAM Card -->
+                <Border Grid.Column="1" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                        CornerRadius="8" Padding="20,16">
+                    <StackPanel Spacing="8">
+                        <FontIcon Glyph="&#xE964;"/>
+                        <TextBlock Text="RAM" FontSize="11" FontWeight="SemiBold"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   CharacterSpacing="100"/>
+                        <TextBlock x:Name="txtRam" Text="Detecting..."
+                                   FontSize="24" FontWeight="Bold"
+                                   Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- GPU Card -->
+                <Border Grid.Column="2" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                        CornerRadius="8" Padding="20,16">
+                    <StackPanel Spacing="8">
+                        <FontIcon Glyph="&#xE7F4;"/>
+                        <TextBlock Text="GPU" FontSize="11" FontWeight="SemiBold"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   CharacterSpacing="100"/>
+                        <TextBlock x:Name="txtGpu" Text="Detecting..." FontSize="13"
+                                   FontWeight="SemiBold" TextWrapping="Wrap"
+                                   Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Chassis Card -->
+                <Border Grid.Column="3" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1"
+                        CornerRadius="8" Padding="20,16">
+                    <StackPanel Spacing="8">
+                        <FontIcon Glyph="&#xE7F8;"/>
+                        <TextBlock Text="CHASSIS" FontSize="11" FontWeight="SemiBold"
+                                   Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                   CharacterSpacing="100"/>
+                        <TextBlock x:Name="txtChassis" Text="Detecting..."
+                                   FontSize="18" FontWeight="Bold"
+                                   Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <!-- Engine Status -->
+            <StackPanel Spacing="12">
+                <TextBlock Text="Engine Modules" FontSize="16" FontWeight="SemiBold"
+                           Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+
+                <Grid ColumnSpacing="12" RowSpacing="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border x:Name="cardIRQ"    Grid.Column="0" Grid.Row="0" CornerRadius="8" Padding="16,12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Ellipse x:Name="dotIRQ" Width="10" Height="10" Fill="#ff3a3a" VerticalAlignment="Center"/>
+                            <StackPanel>
+                                <TextBlock Text="IRQ Affinity" FontSize="13" FontWeight="SemiBold"/>
+                                <TextBlock x:Name="lblIRQ" Text="Not Applied" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="cardNDIS"   Grid.Column="1" Grid.Row="0" CornerRadius="8" Padding="16,12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Ellipse x:Name="dotNDIS" Width="10" Height="10" Fill="#ff3a3a" VerticalAlignment="Center"/>
+                            <StackPanel>
+                                <TextBlock Text="NDIS RSS" FontSize="13" FontWeight="SemiBold"/>
+                                <TextBlock x:Name="lblNDIS" Text="Not Applied" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="cardASPM"   Grid.Column="2" Grid.Row="0" CornerRadius="8" Padding="16,12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Ellipse x:Name="dotASPM" Width="10" Height="10" Fill="#ff3a3a" VerticalAlignment="Center"/>
+                            <StackPanel>
+                                <TextBlock Text="PCIe ASPM" FontSize="13" FontWeight="SemiBold"/>
+                                <TextBlock x:Name="lblASPM" Text="Not Applied" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="cardPaging" Grid.Column="0" Grid.Row="1" CornerRadius="8" Padding="16,12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Ellipse x:Name="dotPaging" Width="10" Height="10" Fill="#ff3a3a" VerticalAlignment="Center"/>
+                            <StackPanel>
+                                <TextBlock Text="Dynamic Paging" FontSize="13" FontWeight="SemiBold"/>
+                                <TextBlock x:Name="lblPaging" Text="Not Applied" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="cardStandby" Grid.Column="1" Grid.Row="1" CornerRadius="8" Padding="16,12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Ellipse x:Name="dotStandby" Width="10" Height="10" Fill="#ff3a3a" VerticalAlignment="Center"/>
+                            <StackPanel>
+                                <TextBlock Text="Standby Cleaner" FontSize="13" FontWeight="SemiBold"/>
+                                <TextBlock x:Name="lblStandby" Text="Not Applied" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="cardPerf"   Grid.Column="2" Grid.Row="1" CornerRadius="8" Padding="16,12" Background="{ThemeResource CardBackgroundFillColorDefaultBrush}" BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}" BorderThickness="1">
+                        <StackPanel Orientation="Horizontal" Spacing="12">
+                            <Ellipse x:Name="dotPerf" Width="10" Height="10" Fill="#ff3a3a" VerticalAlignment="Center"/>
+                            <StackPanel>
+                                <TextBlock Text="Extreme Perf" FontSize="13" FontWeight="SemiBold"/>
+                                <TextBlock x:Name="lblPerf" Text="Not Applied" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </StackPanel>
+
+            <!-- Benchmark Comparison — the killer feature -->
+            <Border Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1" CornerRadius="8" Padding="24,20">
+                <StackPanel Spacing="20">
+                    <StackPanel Spacing="4">
+                        <TextBlock Text="Performance Differential" FontSize="16" FontWeight="SemiBold"/>
+                        <TextBlock Text="i5-12450HX / RTX 3050 6GB · TLOU1 All High + DLSS Quality · CapFrameX + LatencyMon"
+                                   FontSize="12" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                    </StackPanel>
+
+                    <!-- Avg FPS -->
+                    <StackPanel Spacing="6">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="AVG FPS" FontSize="11" FontFamily="Consolas"
+                                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                       VerticalAlignment="Center"/>
+                            <StackPanel Grid.Column="1" Spacing="4">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Rectangle Height="8" Width="220" Fill="#333355" RadiusX="2" RadiusY="2"/>
+                                    <TextBlock Text="~55" FontSize="11" Foreground="#666688" FontFamily="Consolas" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Rectangle Height="8" Width="300" Fill="#1a3aff" RadiusX="2" RadiusY="2"/>
+                                    <TextBlock Text="67.3" FontSize="11" Foreground="#1a3aff" FontFamily="Consolas" FontWeight="Bold" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Grid.Column="2" Text="+22%" FontSize="16" FontWeight="Bold"
+                                       Foreground="#00d97e" VerticalAlignment="Center" Margin="16,0,0,0"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- 1% Low -->
+                    <StackPanel Spacing="6">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="1% LOW" FontSize="11" FontFamily="Consolas"
+                                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                       VerticalAlignment="Center"/>
+                            <StackPanel Grid.Column="1" Spacing="4">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Rectangle Height="8" Width="152" Fill="#333355" RadiusX="2" RadiusY="2"/>
+                                    <TextBlock Text="~38" FontSize="11" Foreground="#666688" FontFamily="Consolas" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Rectangle Height="8" Width="223" Fill="#1a3aff" RadiusX="2" RadiusY="2"/>
+                                    <TextBlock Text="55.7" FontSize="11" Foreground="#1a3aff" FontFamily="Consolas" FontWeight="Bold" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Grid.Column="2" Text="+46%" FontSize="16" FontWeight="Bold"
+                                       Foreground="#00d97e" VerticalAlignment="Center" Margin="16,0,0,0"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- 0.1% Low -->
+                    <StackPanel Spacing="6">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="0.1% LOW" FontSize="11" FontFamily="Consolas"
+                                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                       VerticalAlignment="Center"/>
+                            <StackPanel Grid.Column="1" Spacing="4">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Rectangle Height="8" Width="96" Fill="#333355" RadiusX="2" RadiusY="2"/>
+                                    <TextBlock Text="~24" FontSize="11" Foreground="#666688" FontFamily="Consolas" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Rectangle Height="8" Width="193" Fill="#1a3aff" RadiusX="2" RadiusY="2"/>
+                                    <TextBlock Text="48.3" FontSize="11" Foreground="#1a3aff" FontFamily="Consolas" FontWeight="Bold" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Grid.Column="2" Text="+100%" FontSize="16" FontWeight="Bold"
+                                       Foreground="#00d97e" VerticalAlignment="Center" Margin="16,0,0,0"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- DPC Latency -->
+                    <StackPanel Spacing="6">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="120"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="DPC AVG (μs)" FontSize="11" FontFamily="Consolas"
+                                       Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+                                       VerticalAlignment="Center"/>
+                            <StackPanel Grid.Column="1" Spacing="4">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Rectangle Height="8" Width="300" Fill="#ff3a3a" RadiusX="2" RadiusY="2"/>
+                                    <TextBlock Text="~400μs" FontSize="11" Foreground="#ff3a3a" FontFamily="Consolas" VerticalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <Rectangle Height="8" Width="36" Fill="#00d97e" RadiusX="2" RadiusY="2"/>
+                                    <TextBlock Text="47.9μs" FontSize="11" Foreground="#00d97e" FontFamily="Consolas" FontWeight="Bold" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Grid.Column="2" Text="-88%" FontSize="16" FontWeight="Bold"
+                                       Foreground="#00d97e" VerticalAlignment="Center" Margin="16,0,0,0"/>
+                        </Grid>
+                    </StackPanel>
+
+                    <!-- Legend -->
+                    <StackPanel Orientation="Horizontal" Spacing="24">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Rectangle Width="16" Height="4" Fill="#333355" VerticalAlignment="Center"/>
+                            <TextBlock Text="Stock Windows 11" FontSize="11" Foreground="{ThemeResource TextFillColorSecondaryBrush}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <Rectangle Width="16" Height="4" Fill="#1a3aff" VerticalAlignment="Center"/>
+                            <TextBlock Text="Void OS" FontSize="11" Foreground="{ThemeResource TextFillColorPrimaryBrush}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>

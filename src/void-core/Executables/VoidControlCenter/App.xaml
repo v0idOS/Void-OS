@@ -1,7 +1,25 @@
-<Application x:Class="VoidControlCenter.App"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="MainWindow.xaml">
+<?xml version="1.0" encoding="utf-8"?>
+<Application
+    x:Class="VoidControlCenter.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+                <ResourceDictionary>
+                    <!-- Void OS accent color override -->
+                    <SolidColorBrush x:Key="VoidAccent" Color="#1a3aff"/>
+                    <SolidColorBrush x:Key="VoidSurface" Color="#0d0d1a"/>
+                    <SolidColorBrush x:Key="VoidMuted" Color="#7070a0"/>
+                    <SolidColorBrush x:Key="VoidSuccess" Color="#00d97e"/>
+                    <SolidColorBrush x:Key="VoidDanger" Color="#ff3a3a"/>
+                    <Color x:Key="SystemAccentColor">#1a3aff</Color>
+                    <Color x:Key="SystemAccentColorDark1">#1530e0</Color>
+                    <Color x:Key="SystemAccentColorDark2">#0f22b0</Color>
+                    <Color x:Key="SystemAccentColorLight1">#3d58ff</Color>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

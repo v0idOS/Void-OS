@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="VoidControlCenter.Views.MemoryNetworkPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctk="using:CommunityToolkit.WinUI.Controls"
+    RequestedTheme="Dark"
+    Background="Transparent">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Spacing="24" Padding="40,32,40,40">
+
+            <StackPanel Spacing="4">
+                <TextBlock Text="MEMORY &amp; NETWORK" FontSize="11" FontWeight="SemiBold"
+                           Foreground="#1a3aff" CharacterSpacing="200"/>
+                <TextBlock Text="Memory &amp; Network" FontSize="28"
+                           FontFamily="Segoe UI Variable Display" FontWeight="SemiBold"/>
+            </StackPanel>
+
+            <!-- Memory Status -->
+            <ctk:SettingsExpander Header="Memory Management" IsExpanded="True">
+                <ctk:SettingsExpander.HeaderIcon><FontIcon Glyph="&#xE964;"/></ctk:SettingsExpander.HeaderIcon>
+                <ctk:SettingsExpander.Items>
+                    <ctk:SettingsCard Header="Page File Configuration"
+                                      Description="Dynamic paging: 8192MB static pagefile on &lt;32GB RAM systems. Eliminates hard page fault storms during shader compilation.">
+                        <ctk:SettingsCard.HeaderIcon><FontIcon Glyph="&#xEDA2;"/></ctk:SettingsCard.HeaderIcon>
+                        <Border Background="#0d1a3a" CornerRadius="4" Padding="8,4">
+                            <TextBlock x:Name="txtPageFile" Text="Reading..." FontFamily="Consolas" FontSize="12" Foreground="#1a3aff"/>
+                        </Border>
+                    </ctk:SettingsCard>
+                    <ctk:SettingsCard Header="Standby List Cleaner"
+                                      Description="Flushes standby memory list via NtSetSystemInformation with proper privilege assertion. No ISLC dependency.">
+                        <ctk:SettingsCard.HeaderIcon><FontIcon Glyph="&#xE74D;"/></ctk:SettingsCard.HeaderIcon>
+                        <Button x:Name="btnFlush" Content="Flush Now" Click="BtnFlush_Click"
+                                Style="{StaticResource AccentButtonStyle}"/>
+                    </ctk:SettingsCard>
+                </ctk:SettingsExpander.Items>
+            </ctk:SettingsExpander>
+
+            <!-- Network -->
+            <ctk:SettingsExpander Header="Network Stack" IsExpanded="True">
+                <ctk:SettingsExpander.HeaderIcon><FontIcon Glyph="&#xE701;"/></ctk:SettingsExpander.HeaderIcon>
+                <ctk:SettingsExpander.Items>
+                    <ctk:SettingsCard Header="NetworkThrottlingIndex"
+                                      Description="Set to 0xFFFFFFFF. Removes MMCSS-imposed packet scheduling delays for zero-overhead network throughput.">
+                        <ctk:SettingsCard.HeaderIcon><FontIcon Glyph="&#xE701;"/></ctk:SettingsCard.HeaderIcon>
+                        <Border Background="#0d1a3a" CornerRadius="4" Padding="8,4">
+                            <TextBlock Text="0xFFFFFFFF" FontFamily="Consolas" FontSize="12" Foreground="#1a3aff"/>
+                        </Border>
+                    </ctk:SettingsCard>
+                    <ctk:SettingsCard Header="DMA Coalescing Disabled"
+                                      Description="Intel adapter: DMACoalescing=0. Prevents artificial packet batching latency on Intel NICs.">
+                        <ctk:SettingsCard.HeaderIcon><FontIcon Glyph="&#xE968;"/></ctk:SettingsCard.HeaderIcon>
+                        <Border Background="#0d1a3a" CornerRadius="4" Padding="8,4">
+                            <TextBlock Text="DISABLED" FontFamily="Consolas" FontSize="12" Foreground="#1a3aff"/>
+                        </Border>
+                    </ctk:SettingsCard>
+                    <ctk:SettingsCard Header="Reset to Void Network Defaults"
+                                      Description="Reapplies all Void network adapter settings. Use after driver updates or if network feels sluggish.">
+                        <ctk:SettingsCard.HeaderIcon><FontIcon Glyph="&#xE72C;"/></ctk:SettingsCard.HeaderIcon>
+                        <Button x:Name="btnNetwork" Content="Reset Network" Click="BtnNetwork_Click"/>
+                    </ctk:SettingsCard>
+                </ctk:SettingsExpander.Items>
+            </ctk:SettingsExpander>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>
