@@ -5,6 +5,9 @@ on:
     tags:
       - "v*"
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+
 concurrency:
   group: release-vcc-${{ github.ref_name }}
   cancel-in-progress: false
@@ -19,12 +22,15 @@ jobs:
     steps:
       - name: Checkout Void OS repo
         uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
 
       - name: Checkout Void Control Center repo
         uses: actions/checkout@v4
         with:
           repository: v0idOS/Void-OS---Control-Center
           path: VoidControlCenter-repo
+          token: ${{ github.token }}
 
       - name: Setup MSBuild
         uses: microsoft/setup-msbuild@v2
