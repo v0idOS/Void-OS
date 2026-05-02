@@ -33,12 +33,12 @@ First stable public release of Void OS. This version introduces a fully programm
 - `StandbyCleaner.ps1` — uses `RtlAdjustPrivilege` to assert `SeProfileSingleProcessPrivilege` before calling `NtSetSystemInformation` for memory flush; eliminates dependency on third-party tools like ISLC
 
 ### Added — Void Control Center (VCC)
-- `VoidControlCenter.exe` — native C# WPF .NET 8 application; self-contained single executable (~281MB), no installer required, no .NET runtime dependency on target system
-- Live hardware topology display (CPU name + architecture, RAM, GPU, chassis type) via WMI
-- Engine status panel — reads `C:\VoidOS_Logs\` to show green/red Applied/Not Applied indicator for each Master Engine script
-- Benchmark differential panel — renders real measured numbers against stock Windows 11 baseline
-- One-click actions: Flush Standby Memory, Reset Network to Void Default, Open VoidDesktop
-- PowerShell Runspace hosted inside C# for safe, elevated script execution from GUI buttons
+- `VoidControlCenter.exe` — native C# **WinUI 3** (.NET 8, Microsoft.WindowsAppSDK) application; unpackaged, self-contained, no installer, no runtime dependency on target system
+- Mica dark backdrop (`BaseAlt`), electric blue `#1a3aff` accent, NavigationView shell
+- **Overview page:** hardware topology cards (CPU/RAM/GPU/Chassis) + engine status indicators (green/red) + benchmark comparison bar chart unique to any AME playbook
+- **Performance page:** SettingsExpander groups showing IRQ Routing, CPU Scheduler, and Latency Engine config with live registry readouts
+- **Memory & Network page:** page file status, Flush Standby button, Reset Network button
+- **Tools page:** Create Restore Point, View Engine Log, Open VoidDesktop, all elevated actions
 
 ### Added — Auto-Deployment
 - `custom.yml` VCC deploy step — copies `VoidControlCenter.exe` to `C:\Windows\VoidDesktop\` and creates a desktop shortcut in `CommonDesktopDirectory` automatically at end of install; zero manual steps required
@@ -62,6 +62,14 @@ First stable public release of Void OS. This version introduces a fully programm
 
 ### Fixed — Build Pipeline
 - `local-build.ps1` — replaced brittle `IndexOf('actions:')` string injection with robust Regex-based log entry injection
+
+### Fixed — Engine Bugs (post-audit)
+- Deleted orphan `VoidOS/ExtremePerformance.ps1` (root-level) — dead code that was never executed by the runner and contained conflicting `NetworkThrottlingIndex` override
+- Fixed `IRQAffinity.ps1` PCI registry path: single wildcard `*` → double `*\*` to correctly enumerate device instances
+- `VoidOS_Runner.ps1` — removed erroneous `$PSScriptRoot` reassignment; added `HardwareDetection.psm1` import before it is called
+- `ExtremePerformance.ps1` — replaced `Write-Host` with `Write-VoidLog` so VCC engine status panel correctly detects it
+- `StandbyCleaner.ps1` added to `Core/` in the runner pipeline — VCC badge now correctly shows Applied
+- `playbook.conf` version bumped from `0.5.0` to `1.0.0`
 
 ### Security
 - `VoidOS_Runner.ps1` — laptop chassis detection gates ExtremeACPI.ps1 behind desktop-only check; prevents ACPI hardware damage on mobile systems
@@ -102,6 +110,6 @@ First stable public release of Void OS. This version introduces a fully programm
 ---
 
 [1.0.0]: https://github.com/v0idOS/Void-OS/releases/tag/v1.0.0
-[0.3.0]: https://github.com/v0idOS/Void-OS/compare/v0.2.0...v0.3.0
-[0.2.0]: https://github.com/v0idOS/Void-OS/compare/v0.1.0...v0.2.0
-[0.1.0]: https://github.com/v0idOS/Void-OS/releases/tag/v0.1.0
+[0.3.0]: https://github.com/v0idOS/Void-OS/releases/tag/v1.0.0
+[0.2.0]: https://github.com/v0idOS/Void-OS/releases/tag/v1.0.0
+[0.1.0]: https://github.com/v0idOS/Void-OS/releases/tag/v1.0.0

@@ -20,3 +20,5 @@ src/release-zip/*.zip
 # Void Control Center compiled output
 src/void-core/Executables/VoidControlCenter/bin/
 src/void-core/Executables/VoidControlCenter/obj/
+
+atlas-toolbox-main/
