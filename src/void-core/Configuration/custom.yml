@@ -47,7 +47,7 @@ actions:
     command: |
       $windir = [Environment]::GetFolderPath('Windows')
       $vccDst = "$windir\VoidDesktop\VoidControlCenter.exe"
-      $vccUrl = 'https://github.com/v0idOS/Void-OS/releases/latest/download/VoidControlCenter.exe'
+      $vccUrl = 'https://github.com/v0idOS/Void-OS---Control-Center/releases/latest/download/VoidControlCenter.exe'
       try {
           Write-Host "[Void OS] Downloading Void Control Center from GitHub..."
           [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
