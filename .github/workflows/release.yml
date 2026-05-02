@@ -1,0 +1,51 @@
+name: Release VCC EXE
+
+on:
+  push:
+    tags:
+      - "v*"
+
+concurrency:
+  group: release-vcc-${{ github.ref_name }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  build-vcc:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Void OS repo
+        uses: actions/checkout@v4
+
+      - name: Checkout Void Control Center repo
+        uses: actions/checkout@v4
+        with:
+          repository: v0idOS/Void-OS---Control-Center
+          path: VoidControlCenter-repo
+
+      - name: Setup MSBuild
+        uses: microsoft/setup-msbuild@v2
+
+      - name: Restore and publish single-file VCC
+        id: build_vcc
+        shell: pwsh
+        working-directory: VoidControlCenter-repo
+        run: |
+          msbuild .\VoidControlCenter.csproj /restore /p:Configuration=Release /p:Platform=x64
+          msbuild .\VoidControlCenter.csproj /t:Publish /p:Configuration=Release /p:Platform=x64 /p:PublishSingleFile=true /p:SelfContained=true /p:RuntimeIdentifier=win-x64 /p:PublishDir=publish\
+          if (!(Test-Path ".\publish\VoidControlCenter.exe")) {
+            throw "VoidControlCenter.exe not found in publish output."
+          }
+          $normalizedName = "VoidControlCenter-$env:GITHUB_REF_NAME.exe"
+          Copy-Item ".\publish\VoidControlCenter.exe" ".\publish\$normalizedName" -Force
+          "vcc_asset=VoidControlCenter-repo/publish/$normalizedName" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
+
+      - name: Upload VCC to release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.build_vcc.outputs.vcc_asset }}
+          tag_name: ${{ github.ref_name }}
+          fail_on_unmatched_files: true
