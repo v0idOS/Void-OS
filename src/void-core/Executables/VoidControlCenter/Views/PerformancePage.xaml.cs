@@ -1,5 +1,7 @@
+using System;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.Win32;
+using VoidControlCenter.Services;
 
 namespace VoidControlCenter.Views
 {
@@ -24,7 +26,10 @@ namespace VoidControlCenter.Views
                     txtPriority.Text = $"0x{v:X2} ({(v == 40 ? "Hybrid Mode" : "Classic Mode")})";
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                HardwareInfo.LogVccError("PerformancePage.LoadStatus", ex);
+            }
         }
     }
 }

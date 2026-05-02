@@ -8,7 +8,13 @@ if (-not (Test-IsLaptop)) {
 }
 
 Write-VoidLog "Applying Void OS Elite Battery Profile..." -Type Info
-$scheme = (powercfg -getactivescheme).Split(' ')[3]
+$activeSchemeOutput = powercfg -getactivescheme
+if ($activeSchemeOutput -match '([a-fA-F0-9-]{36})') {
+    $scheme = $matches[1]
+} else {
+    Write-VoidLog "Failed to parse active power scheme GUID from powercfg output." -Type Error
+    exit 1
+}
 
 # Cap Max Frequency to 99% (Disables Turbo Boost)
 powercfg -setdcvalueindex $scheme SUB_PROCESSOR PROCTHROTTLEMAX 99

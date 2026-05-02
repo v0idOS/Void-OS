@@ -52,6 +52,16 @@ foreach ($script in $scripts) {
     & $script.FullName @argsParams
 }
 
+if (-not $Rollback) {
+    $powerModeScript = Join-Path $PSScriptRoot "PowerProfiles\VoidPowerMode.ps1"
+    if (Test-Path $powerModeScript) {
+        Write-VoidLog "Applying automatic power mode profile..." -Type Info
+        & $powerModeScript -Mode "Auto"
+    } else {
+        Write-VoidLog "Power mode script not found: $powerModeScript" -Type Skipped
+    }
+}
+
 Write-VoidLog "Void OS Engine Execution Complete." -Type Success
 
 # VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

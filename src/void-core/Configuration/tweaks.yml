@@ -94,6 +94,7 @@ actions:
   - !task: {path: 'tweaks\privacy\disable-perf-track.yml'}
   - !task: {path: 'tweaks\privacy\disable-privacy-experience.yml'}
   - !task: {path: 'tweaks\privacy\disable-recall-snap.yml'}
+  - !task: {path: 'tweaks\privacy\disable-recall-24h2-reinforcement.yml'}
   - !task: {path: 'tweaks\privacy\disable-device-monitoring.yml'}
   - !task: {path: 'tweaks\privacy\disable-rsop-logging.yml'}
   - !task: {path: 'tweaks\privacy\disable-speech-auto-updates.yml'}
@@ -121,6 +122,7 @@ actions:
   #  privacy\cloud                                                             #
   # -------------------------------------------------------------------------- #
   - !task: {path: 'tweaks\privacy\cloud\disable-setting-sync.yml'}
+  - !task: {path: 'tweaks\privacy\cloud\disable-cloud-clipboard-sync.yml'}
   - !task: {path: 'tweaks\privacy\cloud\disable-suggest-ways-to-finish-setup.yml'}
   - !task: {path: 'tweaks\privacy\cloud\disallow-message-cloud-sync.yml'}
 
@@ -133,6 +135,7 @@ actions:
   - !task: {path: 'tweaks\privacy\telemetry\disable-dotnet-cli-telemetry.yml'}
   - !task: {path: 'tweaks\privacy\telemetry\disable-input-telemetry.yml'}
   - !task: {path: 'tweaks\privacy\telemetry\disallow-data-collection.yml'}
+  - !task: {path: 'tweaks\privacy\privacy-reapply-startup-task.yml'}
 
 
 

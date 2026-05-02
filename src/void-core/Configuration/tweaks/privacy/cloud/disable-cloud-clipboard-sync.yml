@@ -1,0 +1,16 @@
+---
+title: Disable Cloud Clipboard Cross-Device Sync
+description: Prevents clipboard roaming and clipboard cloud synchronization telemetry.
+actions:
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    value: 'AllowCrossDeviceClipboard'
+    data: '0'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\System'
+    value: 'AllowClipboardHistory'
+    data: '0'
+    type: REG_DWORD
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

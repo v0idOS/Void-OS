@@ -2,7 +2,13 @@ $engineDir = Join-Path $PSScriptRoot "..\Engine"
 Import-Module "$engineDir\Logger.psm1"
 
 Write-VoidLog "Applying Void OS Elite Gaming Profile..." -Type Info
-$scheme = (powercfg -getactivescheme).Split(' ')[3]
+$activeSchemeOutput = powercfg -getactivescheme
+if ($activeSchemeOutput -match '([a-fA-F0-9-]{36})') {
+    $scheme = $matches[1]
+} else {
+    Write-VoidLog "Failed to parse active power scheme GUID from powercfg output." -Type Error
+    exit 1
+}
 
 # Disable Core Parking (0% AC and DC)
 powercfg -setacvalueindex $scheme SUB_PROCESSOR 0cc5b647-c1df-4637-891a-dec35c318583 100

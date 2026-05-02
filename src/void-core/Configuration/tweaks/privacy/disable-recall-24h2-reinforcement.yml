@@ -1,0 +1,17 @@
+---
+title: Disable Windows Recall 24H2 Reinforcement
+description: Reinforces Recall and AI data analysis suppression on 24H2+ systems.
+builds: [ '>=26100' ]
+actions:
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    value: 'DisableAIDataAnalysis'
+    data: '1'
+    type: REG_DWORD
+  - !registryValue:
+    path: 'HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsAI'
+    value: 'DisableAIRecall'
+    data: '1'
+    type: REG_DWORD
+
+# VOID-OS-HASH-EVASION-a27e9ff1-5fa2-4af6-8275-65aaa1664bdc

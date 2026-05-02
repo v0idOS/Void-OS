@@ -1,10 +1,19 @@
 using System;
+using System.IO;
 using System.Management;
 
 namespace VoidControlCenter.Services
 {
     public class HardwareInfo
     {
+        public static void LogVccError(string source, Exception ex)
+        {
+            var logDir = @"C:\VoidOS_Logs";
+            Directory.CreateDirectory(logDir);
+            var line = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] [{source}] {ex.Message}{Environment.NewLine}";
+            File.AppendAllText(Path.Combine(logDir, "VCC_Errors.log"), line);
+        }
+
         public string CpuName { get; set; } = "Unknown";
         public string CpuArch { get; set; } = "Classic";
         public string RamAmount { get; set; } = "Unknown";
@@ -49,7 +58,10 @@ namespace VoidControlCenter.Services
                     }
                 }
             }
-            catch { }
+            catch (Exception ex)
+            {
+                LogVccError("HardwareInfo.Detect", ex);
+            }
             return info;
         }
     }
@@ -84,7 +96,10 @@ namespace VoidControlCenter.Services
                 s.StandbyCleaner   = c.Contains("StandbyCleaner");
                 s.ExtremePerformance = c.Contains("Extreme Performance Protocol Deployed");
             }
-            catch { }
+            catch (Exception ex)
+            {
+                HardwareInfo.LogVccError("EngineStatus.Check", ex);
+            }
             return s;
         }
     }

@@ -1,6 +1,10 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Management.Automation;
+using System.Management.Automation.Runspaces;
+using System.Threading.Tasks;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 
@@ -66,6 +70,54 @@ namespace VoidControlCenter.Views
             if (logs.Length == 0) return;
             Array.Sort(logs, (a, b) => b.CreationTime.CompareTo(a.CreationTime));
             Process.Start(new ProcessStartInfo { FileName = logs[0].FullName, UseShellExecute = true });
+        }
+
+        private async void BtnPowerAuto_Click(object sender, RoutedEventArgs e) => await RunPowerModeAsync("Auto");
+        private async void BtnPowerPerformance_Click(object sender, RoutedEventArgs e) => await RunPowerModeAsync("Performance");
+        private async void BtnPowerBattery_Click(object sender, RoutedEventArgs e) => await RunPowerModeAsync("Battery");
+
+        private async Task RunPowerModeAsync(string mode)
+        {
+            btnPowerAuto.IsEnabled = false;
+            btnPowerPerformance.IsEnabled = false;
+            btnPowerBattery.IsEnabled = false;
+
+            try
+            {
+                var scriptPath = Path.Combine(Environment.GetEnvironmentVariable("windir")!, "VoidOS", "PowerProfiles", "VoidPowerMode.ps1");
+                if (!File.Exists(scriptPath))
+                {
+                    await new ContentDialog { Title = "Missing Script", Content = $"Not found: {scriptPath}", CloseButtonText = "OK", XamlRoot = XamlRoot }.ShowAsync();
+                    return;
+                }
+
+                await Task.Run(() =>
+                {
+                    using var runspace = RunspaceFactory.CreateRunspace();
+                    runspace.Open();
+                    using var ps = PowerShell.Create();
+                    ps.Runspace = runspace;
+                    ps.AddScript("& '" + scriptPath.Replace("'", "''") + "' -Mode " + mode);
+                    var results = ps.Invoke();
+                    if (ps.HadErrors)
+                    {
+                        var err = string.Join(Environment.NewLine, ps.Streams.Error.Select(e => e.ToString()));
+                        throw new InvalidOperationException(err);
+                    }
+                });
+
+                await new ContentDialog { Title = "Power Mode Applied", Content = $"Mode set to {mode}.", CloseButtonText = "OK", XamlRoot = XamlRoot }.ShowAsync();
+            }
+            catch (Exception ex)
+            {
+                await new ContentDialog { Title = "Error", Content = ex.Message, CloseButtonText = "OK", XamlRoot = XamlRoot }.ShowAsync();
+            }
+            finally
+            {
+                btnPowerAuto.IsEnabled = true;
+                btnPowerPerformance.IsEnabled = true;
+                btnPowerBattery.IsEnabled = true;
+            }
         }
     }
 }

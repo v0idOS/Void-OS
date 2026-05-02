@@ -38,6 +38,16 @@
                 <Button x:Name="btnRestore" Content="Create Restore Point" Click="BtnRestore_Click"/>
             </ctk:SettingsCard>
 
+            <ctk:SettingsCard Header="Power Mode"
+                              Description="Switches Void runtime power policy without reinstalling. Auto follows AC/DC, Performance prioritizes throughput, Battery prioritizes efficiency.">
+                <ctk:SettingsCard.HeaderIcon><FontIcon Glyph="&#xE945;"/></ctk:SettingsCard.HeaderIcon>
+                <StackPanel Orientation="Horizontal" Spacing="8">
+                    <Button x:Name="btnPowerAuto" Content="Auto" Click="BtnPowerAuto_Click"/>
+                    <Button x:Name="btnPowerPerformance" Content="Performance" Click="BtnPowerPerformance_Click"/>
+                    <Button x:Name="btnPowerBattery" Content="Battery" Click="BtnPowerBattery_Click"/>
+                </StackPanel>
+            </ctk:SettingsCard>
+
             <ctk:SettingsCard Header="Open VoidDesktop Folder"
                               Description="Opens C:\Windows\VoidDesktop — your post-install toolkit with reversal scripts, advanced configuration, and network tools.">
                 <ctk:SettingsCard.HeaderIcon><FontIcon Glyph="&#xED25;"/></ctk:SettingsCard.HeaderIcon>
